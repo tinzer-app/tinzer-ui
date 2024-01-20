@@ -1,3 +1,5 @@
 import React, { FC } from 'react';
 
-export const App: FC = () => <div>Test Page</div>;
+import { Scenes } from '@scenes/Scenes';
+
+export const App: FC = () => <Scenes />;

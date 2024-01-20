@@ -1,26 +1,30 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: path.resolve(__dirname, "src", "index.tsx"),
+  entry: path.resolve(__dirname, 'src', 'index.tsx'),
   resolve: {
-    extensions: [".js", ".ts", ".tsx"],
+    extensions: ['.js', '.ts', '.tsx'],
+    alias: {
+      '@components': path.resolve(__dirname, 'src/components'),
+      '@scenes': path.resolve(__dirname, 'src/scenes'),
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "Custom template",
+      title: 'Custom template',
       // Load a custom template (lodash by default)
-      template: "./src/index.html",
+      template: './src/index.html',
     }),
   ],
-  target: "web",
+  target: 'web',
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "bundle.js",
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js',
   },
   devServer: {
     static: {
-      directory: path.join(__dirname, "dist"),
+      directory: path.join(__dirname, 'dist'),
     },
     compress: true,
     port: 9000,
@@ -29,25 +33,25 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        use: "ts-loader",
+        use: 'ts-loader',
         exclude: /node_modules/,
       },
       {
         test: /\.(jsx|js)$/,
-        include: path.resolve(__dirname, "src"),
+        include: path.resolve(__dirname, 'src'),
         exclude: /node_modules/,
         use: [
           {
-            loader: "babel-loader",
+            loader: 'babel-loader',
             options: {
               presets: [
                 [
-                  "@babel/preset-env",
+                  '@babel/preset-env',
                   {
-                    targets: "defaults",
+                    targets: 'defaults',
                   },
                 ],
-                "@babel/preset-react",
+                '@babel/preset-react',
               ],
             },
           },

@@ -1,0 +1,1 @@
+export { PaginationTableScene } from './PaginationTableScene';

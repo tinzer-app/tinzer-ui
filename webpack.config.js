@@ -8,6 +8,7 @@ module.exports = {
     alias: {
       '@components': path.resolve(__dirname, 'src/components'),
       '@scenes': path.resolve(__dirname, 'src/scenes'),
+      '@api': path.resolve(__dirname, 'src/api'),
     },
   },
   plugins: [

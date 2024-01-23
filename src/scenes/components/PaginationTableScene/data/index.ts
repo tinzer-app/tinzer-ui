@@ -1,0 +1,1 @@
+export { usePaginationTableSceneData } from './useData';

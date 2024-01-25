@@ -1,9 +1,8 @@
 import css from '@styled-system/css';
 import styled from 'styled-components';
 
-export const AppContentWrapper = styled('div')(
+export const Header = styled('header')(
   css({
-    mx: 17,
-    my: 7,
+    mb: 10,
   }),
 );

@@ -14,7 +14,9 @@ export const PaginationTableScene: FC = () => {
 
   return (
     <PageLayout title={title!} isLoading={isFetching} isDataEmpty={isDataEmpty} error={error}>
-      <Table data={tableData!} />
+      <section>
+        <Table data={tableData!} />
+      </section>
       <Pagination pagesCount={30} initPage={1} onPageChange={() => {}} />
     </PageLayout>
   );

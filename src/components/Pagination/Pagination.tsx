@@ -23,15 +23,16 @@ export const Pagination: FC<PaginationProps> = ({
   }, [initPage, setCurrentPage]);
 
   return (
-    <PaginationComponent
-      count={pagesCount}
-      page={currentPage}
-      onChange={onChange}
-      className={className}
-      siblingCount={2}
-      shape="rounded"
-      hideNextButton
-      hidePrevButton
-    />
+    <footer className={className}>
+      <PaginationComponent
+        count={pagesCount}
+        page={currentPage}
+        onChange={onChange}
+        siblingCount={2}
+        shape="rounded"
+        hideNextButton
+        hidePrevButton
+      />
+    </footer>
   );
 };

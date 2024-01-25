@@ -9,6 +9,7 @@ module.exports = {
       '@components': path.resolve(__dirname, 'src/components'),
       '@scenes': path.resolve(__dirname, 'src/scenes'),
       '@api': path.resolve(__dirname, 'src/api'),
+      '@theme': path.resolve(__dirname, 'src/theme'),
     },
   },
   plugins: [

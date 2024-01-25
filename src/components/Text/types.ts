@@ -1,15 +1,20 @@
 import { ReactNode } from 'react';
 
-type ThemeColor = string;
-type ThemeVariant = string;
+import { ThemeColor } from '@theme/colors';
+import { ThemeVariant } from '@theme/variants';
 
 export interface TextData {
-  value: string;
-  color?: ThemeColor | null;
+  /**
+   * @default 'textPrimary'
+   */
+  textColor?: ThemeColor | null;
+  /**
+   * @default 'body1Regular'
+   */
   variant?: ThemeVariant | null;
 }
 
-export interface TextProps extends Omit<TextData, 'value'> {
+export interface TextProps extends TextData {
   children?: ReactNode;
   className?: string;
 }

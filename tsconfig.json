@@ -5,6 +5,7 @@
     "target": "ES6",
     "jsx": "react",
     "moduleResolution": "Node",
+    "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "noUnusedLocals": true,

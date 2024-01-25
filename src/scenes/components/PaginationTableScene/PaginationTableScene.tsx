@@ -3,6 +3,7 @@ import React, { FC } from 'react';
 import { Table } from '@components/Table';
 import { PageLayout } from '@components/PageLayout';
 
+import { Pagination } from './styled';
 import { usePaginationTableSceneData } from './data';
 
 export const PaginationTableScene: FC = () => {
@@ -14,6 +15,7 @@ export const PaginationTableScene: FC = () => {
   return (
     <PageLayout title={title!} isLoading={isFetching} isDataEmpty={isDataEmpty} error={error}>
       <Table data={tableData!} />
+      <Pagination pagesCount={30} initPage={1} onPageChange={() => {}} />
     </PageLayout>
   );
 };

@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ElementType, ReactNode } from 'react';
 
 import { ThemeColor } from '@theme/colors';
 import { ThemeVariant } from '@theme/variants';
@@ -15,6 +15,7 @@ export interface TextData {
 }
 
 export interface TextProps extends TextData {
+  as?: ElementType;
   children?: ReactNode;
   className?: string;
 }

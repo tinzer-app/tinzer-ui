@@ -23,4 +23,9 @@ export const variants = {
     fontSize: '0.75rem',
     fontWeight: 400,
   },
+  h1Semibold: {
+    fontFamily,
+    fontSize: '2rem',
+    fontWeight: 600,
+  },
 };

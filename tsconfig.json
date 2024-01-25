@@ -18,7 +18,8 @@
     "paths": {
       "@components/*": ["./src/components/*"],
       "@scenes/*": ["./src/scenes/*"],
-      "@api/*": ["./src/api/*"]
+      "@api/*": ["./src/api/*"],
+      "@theme/*": ["./src/theme/*"]
     }
   },
   "compileOnSave": true,

@@ -1,11 +1,12 @@
-import { TableHeaderData, TableRowData } from './components';
+import { OnTableRowClick, TableHeaderData, TableRowData } from './components';
 
-interface TableData {
+export interface TableData {
   headers: TableHeaderData[];
   rows: TableRowData[];
 }
 
 export interface TableProps {
   data: TableData;
+  onRowClick?: OnTableRowClick;
   className?: string;
 }

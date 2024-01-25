@@ -1,17 +1,19 @@
 import React, { FC } from 'react';
 
+import { Table } from '@components/Table';
+import { PageLayout } from '@components/PageLayout';
+
 import { usePaginationTableSceneData } from './data';
 
 export const PaginationTableScene: FC = () => {
-  const { error, isFetching } = usePaginationTableSceneData();
+  const { error, isFetching, data } = usePaginationTableSceneData();
 
-  if (isFetching) {
-    return <>isFetching</>;
-  }
+  const { tableData, title } = data || {};
+  const isDataEmpty = !(tableData?.rows?.length && title);
 
-  if (error) {
-    return <>error</>;
-  }
-
-  return <div>data</div>;
+  return (
+    <PageLayout title={title!} isLoading={isFetching} isDataEmpty={isDataEmpty} error={error}>
+      <Table data={tableData!} />
+    </PageLayout>
+  );
 };

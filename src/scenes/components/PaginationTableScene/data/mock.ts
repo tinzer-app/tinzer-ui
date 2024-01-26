@@ -1,9 +1,9 @@
 import { CellTypes } from '@components/Table';
+import { TextCellData } from '@components/Table/components/TableRow/TableCellContent/TextCell';
 
 import { PaginationTableSceneData } from './types';
-import { TextData } from '@components/Table/components/TableRow/TableCellContent/TextCell/types';
 
-const getRuleTypeColor = (rem: number): TextData => {
+const getRuleTypeColor = (rem: number) => {
   switch (rem) {
     case 0:
       return {
@@ -25,7 +25,7 @@ const getRuleTypeColor = (rem: number): TextData => {
   }
 };
 
-export const MOCK_PROJECTS_PAGE_DATA: PaginationTableSceneData = {
+const MOCK_PROJECTS_PAGE_DATA: PaginationTableSceneData = {
   title: 'проекты',
   tableData: {
     headers: [
@@ -101,7 +101,7 @@ export const MOCK_PROJECTS_PAGE_DATA: PaginationTableSceneData = {
   },
 };
 
-export const MOCK_RULES_PAGE_DATA: PaginationTableSceneData = {
+const MOCK_CONDITIONS_PAGE_DATA: PaginationTableSceneData = {
   title: 'правила',
   tableData: {
     headers: [
@@ -173,7 +173,7 @@ export const MOCK_RULES_PAGE_DATA: PaginationTableSceneData = {
               ...getRuleTypeColor(idx),
               variant: 'body2Semibold',
             },
-          },
+          } as TextCellData,
         },
       ],
     })),
@@ -181,7 +181,7 @@ export const MOCK_RULES_PAGE_DATA: PaginationTableSceneData = {
 };
 
 export const MOCK_REPORTS_PAGE_DATA: PaginationTableSceneData = {
-  title: 'отчеты проверок',
+  title: 'проверки',
   tableData: {
     headers: [
       {
@@ -250,4 +250,20 @@ export const MOCK_REPORTS_PAGE_DATA: PaginationTableSceneData = {
       ],
     })),
   },
+};
+
+export const getMockData = (endpoint: string) => {
+  switch (endpoint) {
+    case 'projects': {
+      return MOCK_PROJECTS_PAGE_DATA;
+    }
+
+    case 'conditions': {
+      return MOCK_CONDITIONS_PAGE_DATA;
+    }
+
+    default: {
+      return MOCK_REPORTS_PAGE_DATA;
+    }
+  }
 };

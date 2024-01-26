@@ -3,7 +3,14 @@ import { QueryClient } from '@tanstack/react-query';
 
 const BASE_API_URL = '';
 
-export const queryClient = new QueryClient();
+export const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 0,
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 export const API = ky.create({
   prefixUrl: BASE_API_URL,

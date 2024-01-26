@@ -1,14 +1,14 @@
 import React, { FC } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 
 import { PaginationTableScene } from './components';
 
 export const Scenes: FC = () => (
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<PaginationTableScene />} />
-      <Route path="projects" element={<PaginationTableScene />} />
-      <Route path="*" element={<div>404</div>} />
-    </Routes>
-  </BrowserRouter>
+  <Routes>
+    <Route path="/" element={<Navigate to="projects" />} />
+    <Route path="/projects" element={<PaginationTableScene />} />
+    <Route path="/conditions" element={<PaginationTableScene />} />
+    <Route path="/reports" element={<PaginationTableScene />} />
+    <Route path="*" element={<div>404</div>} />
+  </Routes>
 );

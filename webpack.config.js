@@ -10,6 +10,7 @@ module.exports = {
       '@scenes': path.resolve(__dirname, 'src/scenes'),
       '@api': path.resolve(__dirname, 'src/api'),
       '@theme': path.resolve(__dirname, 'src/theme'),
+      '@icons': path.resolve(__dirname, 'src/icons'),
     },
   },
   plugins: [
@@ -37,6 +38,11 @@ module.exports = {
         test: /\.tsx?$/,
         use: 'ts-loader',
         exclude: /node_modules/,
+      },
+      {
+        test: /\.svg$/i,
+        issuer: /\.[jt]sx?$/,
+        use: ['@svgr/webpack'],
       },
       {
         test: /\.(jsx|js)$/,

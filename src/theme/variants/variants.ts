@@ -8,6 +8,11 @@ export const variants = {
     fontSize: '1rem',
     fontWeight: 400,
   },
+  body1Semibold: {
+    fontFamily,
+    fontSize: '1rem',
+    fontWeight: 600,
+  },
   body2Regular: {
     fontFamily,
     fontSize: '0.875rem',

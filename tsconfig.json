@@ -20,7 +20,8 @@
       "@components/*": ["./src/components/*"],
       "@scenes/*": ["./src/scenes/*"],
       "@api/*": ["./src/api/*"],
-      "@theme/*": ["./src/theme/*"]
+      "@theme/*": ["./src/theme/*"],
+      "@icons/*": ["./src/icons/*"]
     }
   },
   "compileOnSave": true,

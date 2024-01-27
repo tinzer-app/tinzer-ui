@@ -9,15 +9,17 @@ import { usePaginationTableSceneData } from './data';
 export const PaginationTableScene: FC = () => {
   const { error, isFetching, data } = usePaginationTableSceneData();
 
-  const { tableData, title } = data || {};
-  const isDataEmpty = !(tableData?.rows?.length && title);
+  const { tableData, title, paginationData } = data || {};
+  const isDataEmpty = !(tableData?.rows?.length && title && paginationData);
+
+  const { pagesCount, currentPage } = paginationData || {};
 
   return (
     <PageLayout title={title!} isLoading={isFetching} isDataEmpty={isDataEmpty} error={error}>
       <section>
         <Table data={tableData!} />
       </section>
-      <Pagination pagesCount={30} initPage={1} onPageChange={() => {}} />
+      <Pagination pagesCount={pagesCount!} initPage={currentPage!} onPageChange={() => {}} />
     </PageLayout>
   );
 };

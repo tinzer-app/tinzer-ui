@@ -21,7 +21,8 @@
       "@scenes/*": ["./src/scenes/*"],
       "@api/*": ["./src/api/*"],
       "@theme/*": ["./src/theme/*"],
-      "@icons/*": ["./src/icons/*"]
+      "@icons/*": ["./src/icons/*"],
+      "@global/*": ["./src/global/*"]
     }
   },
   "compileOnSave": true,

@@ -7,6 +7,7 @@ export const colors = {
   textSecondary: '#878787',
   textLink: '#0066FF',
   tagGreen: '#EAFAD5',
+  tagBlue: '#D0F0FF',
   tagRed: '#FFEAF1',
   tagSkyBlueActive: '#2abbff',
   tagMagentaActive: '#fb44fb',

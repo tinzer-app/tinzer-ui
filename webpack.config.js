@@ -11,6 +11,7 @@ module.exports = {
       '@api': path.resolve(__dirname, 'src/api'),
       '@theme': path.resolve(__dirname, 'src/theme'),
       '@icons': path.resolve(__dirname, 'src/icons'),
+      '@global': path.resolve(__dirname, 'src/global'),
     },
   },
   plugins: [

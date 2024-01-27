@@ -1,18 +1,24 @@
+import {
+  CONDITIONS_PAGE_TITLE,
+  PROJECTS_PAGE_TITLE,
+  REPORTS_PAGE_TITLE,
+} from '@scenes/components/PaginationTableScene';
+
 import { NavItemIconType } from './NavItem';
 
 export const NAV_ITEMS = [
   {
-    title: 'проекты',
+    title: PROJECTS_PAGE_TITLE,
     to: '/projects',
     icon: NavItemIconType.folder,
   },
   {
-    title: 'правила',
+    title: CONDITIONS_PAGE_TITLE,
     to: '/conditions',
     icon: NavItemIconType.checklist,
   },
   {
-    title: 'проверки',
+    title: REPORTS_PAGE_TITLE,
     to: '/reports',
     icon: NavItemIconType.analytics,
   },

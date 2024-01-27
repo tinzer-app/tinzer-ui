@@ -1,0 +1,1 @@
+export { getTagDataOfReportResult } from './getTagDataOfReportResult';

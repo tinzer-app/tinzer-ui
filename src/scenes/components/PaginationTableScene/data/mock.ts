@@ -1,255 +1,69 @@
-import { CellTypes } from '@components/Table';
-import { TextCellData } from '@components/Table/components/TableRow/TableCellContent/TextCell';
+import { ReportResult } from '@global/types';
 
-import { PaginationTableSceneData } from './types';
+import { PaginationTableSceneType, ResponseData } from './getParsedPaginationSceneData';
 
-const getRuleTypeColor = (rem: number) => {
-  switch (rem) {
-    case 0:
-      return {
-        value: 'наличие файла',
-        textColor: 'tagSkyBlueActive',
-      };
+const getReportResult = (idx: number) => {
+  switch (idx % 3) {
+    case 0: {
+      return ReportResult.success;
+    }
 
-    case 1:
-      return {
-        value: 'наличие строки',
-        textColor: 'tagMagentaActive',
-      };
+    case 1: {
+      return ReportResult.inProgress;
+    }
 
-    default:
-      return {
-        value: 'значение в поле',
-        textColor: 'tagCyanActive',
-      };
+    default: {
+      return ReportResult.fail;
+    }
   }
 };
 
-const MOCK_PROJECTS_PAGE_DATA: PaginationTableSceneData = {
-  title: 'проекты',
-  tableData: {
-    headers: [
-      {
-        title: 'название',
-      },
-      {
-        title: 'описание',
-      },
-      {
-        title: 'время добавления',
-      },
-      {
-        title: 'время последнего изменения',
-      },
-      {
-        title: 'статус последней проверки',
-      },
-    ],
-    rows: Array.from({ length: 10 }).map((_, idx) => ({
-      id: idx.toString(),
-      cells: [
-        {
-          type: CellTypes.link,
-          data: {
-            title: `Проект ${idx}`,
-            to: 'https://www.google.com/',
-          },
-        },
-        {
-          type: CellTypes.text,
-          data: {
-            title: {
-              value: 'Краткое описание...',
-            },
-          },
-        },
-        {
-          type: CellTypes.text,
-          data: {
-            title: {
-              value: '10.08.2022',
-            },
-            subtitles: [
-              {
-                value: '12:30',
-              },
-            ],
-          },
-        },
-        {
-          type: CellTypes.text,
-          data: {
-            title: {
-              value: '10.08.2022',
-            },
-            subtitles: [
-              {
-                value: '12:30',
-              },
-            ],
-          },
-        },
-        {
-          type: CellTypes.tag,
-          data: {
-            color: idx % 2 === 0 ? 'tagGreen' : 'tagRed',
-            title: idx % 2 === 0 ? 'пройдено' : 'не пройдено',
-          },
-        },
-      ],
-    })),
+const MOCK_PROJECTS_PAGE_DATA: ResponseData = {
+  type: PaginationTableSceneType.projects,
+  data: Array.from({ length: 10 }).map((_, idx) => ({
+    id: idx.toString(),
+    link: 'https://www.google.com/',
+    title: `Проект ${idx}`,
+    description: 'Краткое описание...',
+    creationTimestamp: '',
+    lastEditionTimestamp: '',
+    lastReportResult: getReportResult(idx),
+  })),
+  paginationData: {
+    pagesCount: 10,
+    currentPage: 1,
   },
 };
 
-const MOCK_CONDITIONS_PAGE_DATA: PaginationTableSceneData = {
-  title: 'правила',
-  tableData: {
-    headers: [
-      {
-        title: 'название',
-      },
-      {
-        title: 'описание',
-      },
-      {
-        title: 'время добавления',
-      },
-      {
-        title: 'время последнего изменения',
-      },
-      {
-        title: 'тип проверки',
-      },
-    ],
-    rows: Array.from({ length: 10 }).map((_, idx) => ({
-      id: idx.toString(),
-      cells: [
-        {
-          type: CellTypes.text,
-          data: {
-            title: {
-              value: `правило ${idx}`,
-            },
-          },
-        },
-        {
-          type: CellTypes.text,
-          data: {
-            title: {
-              value: 'Краткое описание...',
-            },
-          },
-        },
-        {
-          type: CellTypes.text,
-          data: {
-            title: {
-              value: '10.08.2022',
-            },
-            subtitles: [
-              {
-                value: '12:30',
-              },
-            ],
-          },
-        },
-        {
-          type: CellTypes.text,
-          data: {
-            title: {
-              value: '10.08.2022',
-            },
-            subtitles: [
-              {
-                value: '12:30',
-              },
-            ],
-          },
-        },
-        {
-          type: CellTypes.text,
-          data: {
-            title: {
-              ...getRuleTypeColor(idx),
-              variant: 'body2Semibold',
-            },
-          } as TextCellData,
-        },
-      ],
-    })),
+const MOCK_CONDITIONS_PAGE_DATA: ResponseData = {
+  type: PaginationTableSceneType.conditions,
+  data: Array.from({ length: 10 }).map((_, idx) => ({
+    title: `правило ${idx}`,
+    description: 'Краткое описание...',
+    id: idx.toString(),
+    creationTimestamp: '10.08.2022',
+    lastEditionTimestamp: '10.08.2022',
+  })),
+  paginationData: {
+    pagesCount: 2,
+    currentPage: 1,
   },
 };
 
-export const MOCK_REPORTS_PAGE_DATA: PaginationTableSceneData = {
-  title: 'проверки',
-  tableData: {
-    headers: [
-      {
-        title: 'название',
-      },
-      {
-        title: 'описание',
-      },
-      {
-        title: 'время последней проверки',
-      },
-      {
-        title: 'статус последней проверки',
-      },
-      {
-        title: 'кол-во правил',
-      },
-    ],
-    rows: Array.from({ length: 10 }).map((_, idx) => ({
-      id: idx.toString(),
-      cells: [
-        {
-          type: CellTypes.text,
-          data: {
-            title: {
-              value: `проверка ${idx}`,
-            },
-          },
-        },
-        {
-          type: CellTypes.text,
-          data: {
-            title: {
-              value: 'Краткое описание...',
-            },
-          },
-        },
-        {
-          type: CellTypes.text,
-          data: {
-            title: {
-              value: '10.08.2022',
-            },
-            subtitles: [
-              {
-                value: '12:30',
-              },
-            ],
-          },
-        },
-        {
-          type: CellTypes.tag,
-          data: {
-            color: idx % 2 === 0 ? 'tagGreen' : 'tagRed',
-            title: idx % 2 === 0 ? 'пройдено' : 'не пройдено',
-          },
-        },
-        {
-          type: CellTypes.text,
-          data: {
-            title: {
-              value: `${idx}`,
-            },
-          },
-        },
-      ],
-    })),
+const MOCK_REPORTS_PAGE_DATA: ResponseData = {
+  type: PaginationTableSceneType.reports,
+  paginationData: {
+    pagesCount: 3,
+    currentPage: 1,
   },
+  data: Array.from({ length: 10 }).map((_, idx) => ({
+    id: idx.toString(),
+    title: `проверка ${idx}`,
+    description: 'Краткое описание...',
+    lastReportTimestamp: '10.08.2022',
+    lastReportResult: getReportResult(idx),
+    conditionsCount: idx,
+  })),
 };
 
 export const getMockData = (endpoint: string) => {

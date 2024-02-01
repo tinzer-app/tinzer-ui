@@ -32,6 +32,9 @@ export const getParsedProjectsTableData = (projectsData: ProjectData[]): TableDa
       lastReportResult,
     }) => ({
       id,
+      link: {
+        to: id,
+      },
       cells: [
         {
           type: CellTypes.link,

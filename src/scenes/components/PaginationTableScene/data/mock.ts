@@ -1,19 +1,19 @@
-import { ReportResult } from '@global/types';
+import { CheckStatus } from '@global/types';
 
 import { PaginationTableSceneType, ResponseData } from './getParsedPaginationSceneData';
 
 const getReportResult = (idx: number) => {
   switch (idx % 3) {
     case 0: {
-      return ReportResult.success;
+      return CheckStatus.success;
     }
 
     case 1: {
-      return ReportResult.inProgress;
+      return CheckStatus.inProgress;
     }
 
     default: {
-      return ReportResult.fail;
+      return CheckStatus.fail;
     }
   }
 };

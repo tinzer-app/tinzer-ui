@@ -10,9 +10,9 @@ export const Tag: FC<TagProps> = ({ data, className }) => {
     <TagComponent
       color={color}
       className={className}
+      value={title}
       variant="body2Regular"
-      textColor="textPrimary">
-      {title}
-    </TagComponent>
+      textColor="textPrimary"
+    />
   );
 };

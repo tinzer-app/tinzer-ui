@@ -6,3 +6,4 @@ export {
 export { getParsedPaginationSceneData } from './getParsedPaginationSceneData';
 export type { ResponseData } from './types';
 export { PaginationTableSceneType } from './getParsedSceneData';
+export type { ReportData } from './getParsedSceneData';

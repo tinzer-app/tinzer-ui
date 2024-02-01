@@ -8,9 +8,7 @@ export const TableHeaders: FC<TableHeadersProps> = ({ headers }) => (
     <tr>
       {headers.map(({ title }, idx) => (
         <Th scope="col" key={idx}>
-          <Title variant="caption1Regular" textColor="textSecondary">
-            {title}
-          </Title>
+          <Title variant="caption1Regular" textColor="textSecondary" value={title} />
         </Th>
       ))}
     </tr>

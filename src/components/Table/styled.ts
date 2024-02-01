@@ -7,6 +7,7 @@ export const TableWrapper = styled('div')(
   css({
     mx: -TD_X_PADDING,
     width: 'calc(100% + 16px)',
+    overflowX: 'auto',
   }),
 );
 

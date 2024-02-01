@@ -9,9 +9,7 @@ import { Header } from './styled';
 export const PageLayout: FC<PageLayoutProps> = ({ title, ...layoutProps }) => (
   <div>
     <Header>
-      <Text as="h1" variant="h1Semibold">
-        {title}
-      </Text>
+      <Text value={title} as="h1" variant="h1Semibold" />
     </Header>
     <Layout {...layoutProps} />
   </div>

@@ -1,4 +1,4 @@
-import { ReportResult } from '@global/types';
+import { CheckStatus } from '@global/types';
 
 export interface ProjectData {
   id: string;
@@ -7,5 +7,5 @@ export interface ProjectData {
   description: string;
   creationTimestamp: string;
   lastEditionTimestamp: string;
-  lastReportResult: ReportResult;
+  lastReportResult: CheckStatus;
 }

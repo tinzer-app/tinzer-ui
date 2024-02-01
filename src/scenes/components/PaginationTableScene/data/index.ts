@@ -4,3 +4,4 @@ export {
   CONDITIONS_PAGE_TITLE,
   REPORTS_PAGE_TITLE,
 } from './getParsedPaginationSceneData';
+export type { ReportData as ReportTableData } from './getParsedPaginationSceneData';

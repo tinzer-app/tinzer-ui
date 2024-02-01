@@ -16,9 +16,7 @@ export const TextCell: FC<TextCellProps> = ({ data }) => {
 
   return (
     <>
-      <Text {...titleData} key="-1">
-        {title.value}
-      </Text>
+      <Text {...titleData} key="-1" />
       {subtitles?.map((subtitle, idx) => {
         const subtitleData: TextData = {
           variant: 'body2Regular',
@@ -26,11 +24,7 @@ export const TextCell: FC<TextCellProps> = ({ data }) => {
           ...subtitle,
         };
 
-        return (
-          <Subtitle {...subtitleData} key={idx}>
-            {subtitle.value}
-          </Subtitle>
-        );
+        return <Subtitle {...subtitleData} key={idx} />;
       })}
     </>
   );

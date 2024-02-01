@@ -1,9 +1,10 @@
-import { ElementType, ReactNode } from 'react';
+import { ElementType } from 'react';
 
 import { ThemeColor } from '@theme/colors';
 import { ThemeVariant } from '@theme/variants';
 
 export interface TextData {
+  value: string;
   /**
    * @default 'textPrimary'
    */
@@ -16,6 +17,5 @@ export interface TextData {
 
 export interface TextProps extends TextData {
   as?: ElementType;
-  children?: ReactNode;
   className?: string;
 }

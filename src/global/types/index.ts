@@ -1,5 +1,7 @@
-export enum ReportResult {
-  success = 'success',
-  fail = 'fail',
-  inProgress = 'inProgress',
+export * from './checks';
+export * from './conditions';
+
+export interface WidgetLinkData {
+  to: string;
+  title?: string;
 }

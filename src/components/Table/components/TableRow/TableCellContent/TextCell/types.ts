@@ -1,8 +1,4 @@
-import { TextData as CoreTextData } from '@components/Text';
-
-export interface TextData extends CoreTextData {
-  value: string;
-}
+import { TextData } from '@components/Text';
 
 export interface TextCellData {
   title: TextData;

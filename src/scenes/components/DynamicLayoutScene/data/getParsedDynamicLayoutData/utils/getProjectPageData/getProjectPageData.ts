@@ -3,10 +3,15 @@ import { getTagDataOfReportResult } from '@global/utils';
 
 import { DynamicLayoutSceneData } from '../../types';
 import {
+  ADDITIONAL_DATA_SECTION_STYLES,
+  DATA_SECTION_TITLE_VARIANT,
   GENERAL_DATA_ITEM_STYLES,
   GENERAL_DATA_SECTION_STYLES,
   HORIZONTAL_GROUP_STYLES,
-} from './constants';
+  MAIN_DATA_SECTION_STYLES,
+  PAGE_SECTION_TITLE_VARIANT,
+  TIMESTAMP_ITEM_STYLES,
+} from '../constants';
 import { ProjectPageData } from './types';
 
 export const getProjectPageData = ({
@@ -27,14 +32,12 @@ export const getProjectPageData = ({
       data: [
         {
           type: ComponentType.verticalComponentsGroup,
-          styles: {
-            maxWidth: 800,
-          },
+          styles: MAIN_DATA_SECTION_STYLES,
           data: [
             {
               type: ComponentType.text,
               data: {
-                variant: 'body2Semibold',
+                variant: DATA_SECTION_TITLE_VARIANT,
                 value: 'проект',
               },
             },
@@ -51,7 +54,7 @@ export const getProjectPageData = ({
               type: ComponentType.text,
               styles: GENERAL_DATA_SECTION_STYLES,
               data: {
-                variant: 'body2Semibold',
+                variant: DATA_SECTION_TITLE_VARIANT,
                 value: 'ветка',
               },
             },
@@ -66,7 +69,7 @@ export const getProjectPageData = ({
               type: ComponentType.text,
               styles: GENERAL_DATA_SECTION_STYLES,
               data: {
-                variant: 'body2Semibold',
+                variant: DATA_SECTION_TITLE_VARIANT,
                 value: 'описание',
               },
             },
@@ -81,9 +84,7 @@ export const getProjectPageData = ({
         },
         {
           type: ComponentType.verticalComponentsGroup,
-          styles: {
-            ml: 10,
-          },
+          styles: ADDITIONAL_DATA_SECTION_STYLES,
           data: [
             {
               type: ComponentType.tag,
@@ -96,7 +97,7 @@ export const getProjectPageData = ({
               },
               data: {
                 value: 'создан',
-                variant: 'body2Semibold',
+                variant: DATA_SECTION_TITLE_VARIANT,
               },
             },
             {
@@ -108,12 +109,10 @@ export const getProjectPageData = ({
             },
             {
               type: ComponentType.text,
-              styles: {
-                mt: 3,
-              },
+              styles: TIMESTAMP_ITEM_STYLES,
               data: {
                 value: 'изменен',
-                variant: 'body2Semibold',
+                variant: DATA_SECTION_TITLE_VARIANT,
               },
             },
             {
@@ -130,7 +129,7 @@ export const getProjectPageData = ({
     {
       type: ComponentType.horizontalComponentsGroup,
       styles: {
-        justifyContent: 'space-between',
+        ...HORIZONTAL_GROUP_STYLES,
         alignItems: 'baseline',
         mt: 10,
       },
@@ -139,7 +138,7 @@ export const getProjectPageData = ({
           type: ComponentType.text,
           data: {
             value: 'последние проверки',
-            variant: 'h3Semibold',
+            variant: PAGE_SECTION_TITLE_VARIANT,
           },
         },
         {

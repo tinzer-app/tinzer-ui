@@ -1,8 +1,8 @@
 import { TagData } from '@components/Tag';
 import { TextData } from '@components/Text';
 import { TableData } from '@components/Table';
-import { WidgetLinkData } from '@global/types';
 import { PageSectionData } from '@components/PageSection';
+import { ConditionData, WidgetLinkData } from '@global/types';
 import { TimestampComponentData } from '@components/TimestampComponent';
 
 import { ComponentData } from '../types';
@@ -16,6 +16,7 @@ export enum ComponentType {
   link = 'link',
   table = 'table',
   timestamp = 'timestamp',
+  condition = 'condition',
 }
 
 export type ComponentContentData =
@@ -26,7 +27,8 @@ export type ComponentContentData =
   | GenericData<ComponentType.pageSection, PageSectionData>
   | GenericData<ComponentType.link, WidgetLinkData>
   | GenericData<ComponentType.table, TableData>
-  | GenericData<ComponentType.timestamp, TimestampComponentData>;
+  | GenericData<ComponentType.timestamp, TimestampComponentData>
+  | GenericData<ComponentType.condition, ConditionData>;
 
 export interface ComponentContentProps {
   data: ComponentContentData;

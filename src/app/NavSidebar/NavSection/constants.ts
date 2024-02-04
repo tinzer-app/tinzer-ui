@@ -1,7 +1,7 @@
 import {
   CONDITIONS_PAGE_TITLE,
   PROJECTS_PAGE_TITLE,
-  REPORTS_PAGE_TITLE,
+  INSPECTIONS_PAGE_TITLE,
 } from '@scenes/components/PaginationTableScene';
 
 import { NavItemIconType } from './NavItem';
@@ -18,7 +18,7 @@ export const NAV_ITEMS = [
     icon: NavItemIconType.checklist,
   },
   {
-    title: REPORTS_PAGE_TITLE,
+    title: INSPECTIONS_PAGE_TITLE,
     to: '/reports',
     icon: NavItemIconType.analytics,
   },

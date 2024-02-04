@@ -1,4 +1,4 @@
-import { CheckStatus } from '@global/types';
+import { InspectionStatus } from '@global/types';
 
 export interface ProjectPageData {
   title: string;
@@ -8,5 +8,5 @@ export interface ProjectPageData {
   branch: string;
   creationTimestamp: Timestamp;
   lastEditionTimestamp: Timestamp;
-  lastReportStatus: CheckStatus;
+  lastInspectionStatus: InspectionStatus;
 }

@@ -1,3 +1,3 @@
 export interface RequestParams {
-  itemId: string;
+  currentPaginationPage: number;
 }

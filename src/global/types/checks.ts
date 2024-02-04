@@ -7,21 +7,21 @@ interface ProjectData {
 
 interface ProjectCheck {
   project: ProjectData;
-  status: CheckStatus;
-  conditionsStatuses: CheckStatus[];
+  status: InspectionStatus;
+  conditionsStatuses: InspectionStatus[];
 }
 
 interface CheckStatusDetails {
   conditions: ConditionData[];
-  projectsChecks: ProjectCheck[];
+  projectsInspections: ProjectCheck[];
 }
 
 export interface CheckResult {
-  status: CheckStatus;
+  status: InspectionStatus;
   details: CheckStatusDetails;
 }
 
-export enum CheckStatus {
+export enum InspectionStatus {
   success = 'success',
   fail = 'fail',
   inProgress = 'inProgress',

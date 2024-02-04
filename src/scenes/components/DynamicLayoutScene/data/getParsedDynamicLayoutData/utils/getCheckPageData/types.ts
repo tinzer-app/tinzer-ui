@@ -6,6 +6,6 @@ export interface CheckPageData {
   description: string;
   creationTimestamp: Timestamp;
   lastEditionTimestamp: Timestamp;
-  lastExecutionTimestamp: Timestamp;
-  checkResult: CheckResult;
+  lastInspectionTimestamp: Timestamp;
+  inspectionData: CheckResult;
 }

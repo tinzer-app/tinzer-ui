@@ -4,7 +4,7 @@ import {
   getParsedReportsTableData,
 } from './utils';
 import { PaginationTableSceneType, ResponseSceneData, TableSceneData } from './types';
-import { CONDITIONS_PAGE_TITLE, PROJECTS_PAGE_TITLE, REPORTS_PAGE_TITLE } from './constants';
+import { CONDITIONS_PAGE_TITLE, PROJECTS_PAGE_TITLE, INSPECTIONS_PAGE_TITLE } from './constants';
 
 export const getParsedSceneData = (
   responseSceneData?: ResponseSceneData | null,
@@ -24,9 +24,9 @@ export const getParsedSceneData = (
       };
     }
 
-    case PaginationTableSceneType.reports: {
+    case PaginationTableSceneType.inspections: {
       return {
-        title: REPORTS_PAGE_TITLE,
+        title: INSPECTIONS_PAGE_TITLE,
         tableData: getParsedReportsTableData(responseSceneData.data),
       };
     }

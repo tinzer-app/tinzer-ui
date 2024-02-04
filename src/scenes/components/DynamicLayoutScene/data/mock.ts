@@ -1,14 +1,24 @@
-import { CheckStatus, ConditionData, ConditionType } from '@global/types';
+import { InspectionStatus, ConditionData, ConditionType } from '@global/types';
 
 import { DynamicLayoutSceneType, ResponseData } from './getParsedDynamicLayoutData';
 
 const MOCK_DATE_FNS_CONDITIONS: ConditionData[] = [
   {
+    type: ConditionType.fileExistence,
+    id: '1',
+    params: ['./package.json', './src/App.tsx'],
+  },
+  {
     type: ConditionType.stringsInFilesMatching,
+    id: '2',
     params: [
       {
         path: './package.json',
         patterns: ['"license": "MIT"', '"description": "Modern JavaScript date utility library"'],
+      },
+      {
+        path: './README.md',
+        patterns: ['read me :)'],
       },
     ],
   },
@@ -25,7 +35,7 @@ const MOCK_PROJECT_PAGE_DATA: ResponseData = {
     branch: 'main',
     creationTimestamp: '2023-01-07 21:32:11',
     lastEditionTimestamp: '2023-12-24 11:05:58',
-    lastReportStatus: CheckStatus.success,
+    lastInspectionStatus: InspectionStatus.success,
   },
 };
 
@@ -43,7 +53,7 @@ const MOCK_CONDITION_PAGE_DATA: ResponseData = {
 };
 
 const MOCK_CHECK_PAGE_DATA: ResponseData = {
-  type: DynamicLayoutSceneType.check,
+  type: DynamicLayoutSceneType.inspection,
   data: {
     id: 'check-date-fns',
     title: 'Проверка package.json в date-fns',
@@ -51,20 +61,20 @@ const MOCK_CHECK_PAGE_DATA: ResponseData = {
       'Проверка наличия строк "license": "MIT" и "description": "Modern JavaScript date utility library" в package.json',
     creationTimestamp: '2023-12-24 11:05:58',
     lastEditionTimestamp: '2023-12-24 11:05:58',
-    lastExecutionTimestamp: '2023-12-29 04:00:00',
-    checkResult: {
-      status: CheckStatus.success,
+    lastInspectionTimestamp: '2023-12-29 04:00:00',
+    inspectionData: {
+      status: InspectionStatus.success,
       details: {
         conditions: MOCK_DATE_FNS_CONDITIONS,
-        projectsChecks: [
+        projectsInspections: [
           {
             project: {
               title: 'date-fns',
               id: 'date-fns',
             },
-            status: CheckStatus.success,
+            status: InspectionStatus.success,
             // здесь будет статус по каждому параметру для каждого файла
-            conditionsStatuses: [CheckStatus.success, CheckStatus.success],
+            conditionsStatuses: [InspectionStatus.success, InspectionStatus.success],
           },
         ],
       },

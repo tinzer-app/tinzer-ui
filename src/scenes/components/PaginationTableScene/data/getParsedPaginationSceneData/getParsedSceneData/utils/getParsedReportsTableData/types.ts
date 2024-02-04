@@ -1,10 +1,10 @@
-import { CheckStatus } from '@global/types';
+import { InspectionStatus } from '@global/types';
 
 export interface ReportData {
   id: string;
   title: string;
   description: string;
-  lastReportTimestamp: string;
-  lastReportResult: CheckStatus;
+  lastInspectionTimestamp: Timestamp;
+  lastInspectionStatus: InspectionStatus;
   conditionsCount: number;
 }

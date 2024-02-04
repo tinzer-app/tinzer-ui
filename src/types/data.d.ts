@@ -3,6 +3,7 @@ declare type Timestamp = string;
 declare type GenericCondition<T, P> = {
   type: T;
   params: P;
+  id: string;
 };
 
 declare type GenericData<T, D, A = unknown> = {

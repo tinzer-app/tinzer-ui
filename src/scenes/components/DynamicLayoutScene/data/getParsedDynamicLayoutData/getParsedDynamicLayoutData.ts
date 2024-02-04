@@ -13,7 +13,7 @@ export const getParsedDynamicLayoutData = (
       return getConditionPageData(responseData.data);
     }
 
-    case DynamicLayoutSceneType.check: {
+    case DynamicLayoutSceneType.inspection: {
       return getCheckPageData(responseData.data);
     }
 

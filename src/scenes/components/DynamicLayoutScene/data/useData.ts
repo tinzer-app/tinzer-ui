@@ -32,7 +32,7 @@ export const useDynamicLayoutSceneData = () => {
     isFetching,
     error,
   } = useQuery<ResponseData>({
-    queryKey: queryKey,
+    queryKey,
     queryFn,
   });
 

@@ -19,7 +19,7 @@ export const NAV_ITEMS = [
   },
   {
     title: INSPECTIONS_PAGE_TITLE,
-    to: '/reports',
+    to: '/inspections',
     icon: NavItemIconType.analytics,
   },
 ];

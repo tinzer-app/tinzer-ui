@@ -41,29 +41,15 @@ export const getParsedConditionsTableData = (conditionsData: ConditionData[]): T
           },
         },
         {
-          type: CellTypes.text,
+          type: CellTypes.timestamp,
           data: {
-            title: {
-              value: creationTimestamp,
-            },
-            subtitles: [
-              {
-                value: '12:30',
-              },
-            ],
+            timestamp: creationTimestamp,
           },
         },
         {
-          type: CellTypes.text,
+          type: CellTypes.timestamp,
           data: {
-            title: {
-              value: lastEditionTimestamp,
-            },
-            subtitles: [
-              {
-                value: '12:30',
-              },
-            ],
+            timestamp: lastEditionTimestamp,
           },
         },
         {

@@ -1,1 +1,1 @@
-export const NAV_SIDEBAR_WIDTH = 230;
+export const NAV_SIDEBAR_WIDTH = 200;

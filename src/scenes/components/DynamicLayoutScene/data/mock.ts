@@ -1,4 +1,9 @@
-import { InspectionStatus, ConditionData, ConditionType } from '@global/types';
+import {
+  InspectionStatus,
+  ConditionData,
+  ConditionType,
+  SingleParamConditionData,
+} from '@global/types';
 
 import { DynamicLayoutSceneType, ResponseData } from './getParsedDynamicLayoutData';
 
@@ -21,6 +26,43 @@ const MOCK_DATE_FNS_CONDITIONS: ConditionData[] = [
         patterns: ['read me :)'],
       },
     ],
+  },
+];
+
+const MOCK_DATE_FNS_SINGLE_CONDITIONS: SingleParamConditionData[] = [
+  {
+    type: ConditionType.fileExistence,
+    id: '1',
+    params: './package.json',
+  },
+  {
+    type: ConditionType.fileExistence,
+    id: '1.1',
+    params: './src/App.tsx',
+  },
+  {
+    type: ConditionType.stringsInFilesMatching,
+    id: '2.1',
+    params: {
+      path: './package.json',
+      pattern: '"license": "MIT"',
+    },
+  },
+  {
+    type: ConditionType.stringsInFilesMatching,
+    id: '2.2',
+    params: {
+      path: './package.json',
+      pattern: '"description": "Modern JavaScript date utility library"',
+    },
+  },
+  {
+    type: ConditionType.stringsInFilesMatching,
+    id: '2.3',
+    params: {
+      path: './README.md',
+      pattern: 'read me :)',
+    },
   },
 ];
 
@@ -63,18 +105,37 @@ const MOCK_CHECK_PAGE_DATA: ResponseData = {
     lastEditionTimestamp: '2023-12-24 11:05:58',
     lastInspectionTimestamp: '2023-12-29 04:00:00',
     inspectionData: {
-      status: InspectionStatus.success,
+      status: InspectionStatus.fail,
       details: {
-        conditions: MOCK_DATE_FNS_CONDITIONS,
+        conditions: MOCK_DATE_FNS_SINGLE_CONDITIONS,
         projectsInspections: [
+          {
+            project: {
+              title: 'example',
+              id: '1',
+            },
+            status: InspectionStatus.fail,
+            conditionsStatuses: [
+              InspectionStatus.success,
+              InspectionStatus.fail,
+              InspectionStatus.success,
+              InspectionStatus.fail,
+              InspectionStatus.fail,
+            ],
+          },
           {
             project: {
               title: 'date-fns',
               id: 'date-fns',
             },
             status: InspectionStatus.success,
-            // здесь будет статус по каждому параметру для каждого файла
-            conditionsStatuses: [InspectionStatus.success, InspectionStatus.success],
+            conditionsStatuses: [
+              InspectionStatus.success,
+              InspectionStatus.success,
+              InspectionStatus.success,
+              InspectionStatus.success,
+              InspectionStatus.success,
+            ],
           },
         ],
       },

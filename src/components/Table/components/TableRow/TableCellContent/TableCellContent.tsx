@@ -22,12 +22,15 @@ export const TableCellContent: FC<TableCellContentProps> = ({ data }) => {
     }
 
     case CellTypes.link: {
-      const { title, to } = data.data;
+      const { title, to, isInNewTab = true } = data.data;
+      const target = isInNewTab ? '_blank' : undefined;
 
       return (
-        <Link href={to} variant="body2Regular" target="__blank" isWithStopPropagation>
-          {title}
-        </Link>
+        !!title && (
+          <Link href={to} variant="body2Regular" target={target} isWithStopPropagation>
+            {title}
+          </Link>
+        )
       );
     }
 

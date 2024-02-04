@@ -1,4 +1,4 @@
-import { ConditionData } from './conditions';
+import { SingleParamConditionData } from './conditions';
 
 interface ProjectData {
   title: string;
@@ -12,7 +12,7 @@ interface ProjectCheck {
 }
 
 interface CheckStatusDetails {
-  conditions: ConditionData[];
+  conditions: SingleParamConditionData[];
   projectsInspections: ProjectCheck[];
 }
 

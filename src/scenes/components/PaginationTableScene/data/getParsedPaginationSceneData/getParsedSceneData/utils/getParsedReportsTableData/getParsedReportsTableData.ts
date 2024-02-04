@@ -31,6 +31,9 @@ export const getParsedReportsTableData = (reportsData: ReportData[]): TableData 
       conditionsCount,
     }) => ({
       id,
+      link: {
+        to: id,
+      },
       cells: [
         {
           type: CellTypes.text,

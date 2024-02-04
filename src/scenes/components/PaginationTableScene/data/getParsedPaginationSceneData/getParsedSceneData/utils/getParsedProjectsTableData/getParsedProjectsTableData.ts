@@ -29,7 +29,7 @@ export const getParsedProjectsTableData = (projectsData: ProjectData[]): TableDa
       id,
       creationTimestamp,
       lastEditionTimestamp,
-      lastReportResult,
+      lastInspectionStatus,
     }) => ({
       id,
       link: {
@@ -79,7 +79,7 @@ export const getParsedProjectsTableData = (projectsData: ProjectData[]): TableDa
         },
         {
           type: CellTypes.tag,
-          data: getTagDataOfReportResult(lastReportResult),
+          data: getTagDataOfReportResult(lastInspectionStatus),
         },
       ],
     }),

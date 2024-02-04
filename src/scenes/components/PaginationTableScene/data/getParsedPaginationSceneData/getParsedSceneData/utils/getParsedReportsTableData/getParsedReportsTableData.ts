@@ -22,7 +22,14 @@ export const getParsedReportsTableData = (reportsData: ReportData[]): TableData 
     },
   ],
   rows: reportsData.map(
-    ({ id, title, description, lastReportTimestamp, lastReportResult, conditionsCount }) => ({
+    ({
+      id,
+      title,
+      description,
+      lastInspectionTimestamp,
+      lastInspectionStatus,
+      conditionsCount,
+    }) => ({
       id,
       cells: [
         {
@@ -45,7 +52,7 @@ export const getParsedReportsTableData = (reportsData: ReportData[]): TableData 
           type: CellTypes.text,
           data: {
             title: {
-              value: lastReportTimestamp,
+              value: lastInspectionTimestamp,
             },
             subtitles: [
               {
@@ -56,7 +63,7 @@ export const getParsedReportsTableData = (reportsData: ReportData[]): TableData 
         },
         {
           type: CellTypes.tag,
-          data: getTagDataOfReportResult(lastReportResult),
+          data: getTagDataOfReportResult(lastInspectionStatus),
         },
         {
           type: CellTypes.text,

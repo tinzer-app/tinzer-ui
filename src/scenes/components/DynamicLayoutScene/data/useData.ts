@@ -1,11 +1,11 @@
-import { useLocation, useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
+import { useLocation, useParams } from 'react-router-dom';
 
 import { API, IS_MOCK_ACTIVE } from '@api/constants';
 
 import { getMockData } from './mock';
-import { ResponseData, getParsedDynamicLayoutData } from './getParsedDynamicLayoutData';
 import { RequestParams } from './types';
+import { ResponseData, getParsedDynamicLayoutData } from './getParsedDynamicLayoutData';
 
 const getDynamicLayoutSceneData = (endpoint: string, requestParams: RequestParams) => {
   if (IS_MOCK_ACTIVE) {
@@ -18,7 +18,7 @@ const getDynamicLayoutSceneData = (endpoint: string, requestParams: RequestParam
 };
 
 export const useDynamicLayoutSceneData = () => {
-  const { itemId } = useParams();
+  const { itemId = '' } = useParams();
   const { pathname } = useLocation();
 
   const endpoint = pathname.split('/')[1];

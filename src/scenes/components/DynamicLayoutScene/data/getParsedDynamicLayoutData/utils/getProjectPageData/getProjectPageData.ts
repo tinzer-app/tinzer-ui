@@ -10,7 +10,7 @@ export const getProjectPageData = ({
   description,
   link,
   branch,
-  lastReportStatus,
+  lastInspectionStatus,
   creationTimestamp,
   lastEditionTimestamp,
 }: ProjectPageData): DynamicLayoutSceneData => ({
@@ -48,7 +48,7 @@ export const getProjectPageData = ({
           data: [
             {
               type: ComponentType.tag,
-              data: getTagDataOfReportResult(lastReportStatus),
+              data: getTagDataOfReportResult(lastInspectionStatus),
             },
             {
               type: ComponentType.text,

@@ -1,16 +1,16 @@
 import { TagData } from '@components/Tag';
-import { CheckStatus } from '@global/types';
+import { InspectionStatus } from '@global/types';
 
-export const getTagDataOfReportResult = (reportResult: CheckStatus): TagData => {
+export const getTagDataOfReportResult = (reportResult: InspectionStatus): TagData => {
   switch (reportResult) {
-    case CheckStatus.success: {
+    case InspectionStatus.success: {
       return {
         title: 'пройдена',
         color: 'tagGreen',
       };
     }
 
-    case CheckStatus.fail: {
+    case InspectionStatus.fail: {
       return {
         title: 'не пройдена',
         color: 'tagRed',

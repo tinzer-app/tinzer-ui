@@ -1,19 +1,19 @@
-import { CheckStatus } from '@global/types';
+import { InspectionStatus } from '@global/types';
 
 import { PaginationTableSceneType, ResponseData } from './getParsedPaginationSceneData';
 
 const getReportResult = (idx: number) => {
   switch (idx % 3) {
     case 0: {
-      return CheckStatus.success;
+      return InspectionStatus.success;
     }
 
     case 1: {
-      return CheckStatus.inProgress;
+      return InspectionStatus.inProgress;
     }
 
     default: {
-      return CheckStatus.fail;
+      return InspectionStatus.fail;
     }
   }
 };
@@ -27,7 +27,7 @@ const MOCK_PROJECTS_PAGE_DATA: ResponseData = {
     description: 'Краткое описание...',
     creationTimestamp: '',
     lastEditionTimestamp: '',
-    lastReportResult: getReportResult(idx),
+    lastInspectionStatus: getReportResult(idx),
   })),
   paginationData: {
     pagesCount: 10,
@@ -51,7 +51,7 @@ const MOCK_CONDITIONS_PAGE_DATA: ResponseData = {
 };
 
 const MOCK_REPORTS_PAGE_DATA: ResponseData = {
-  type: PaginationTableSceneType.reports,
+  type: PaginationTableSceneType.inspections,
   paginationData: {
     pagesCount: 3,
     currentPage: 1,
@@ -60,8 +60,8 @@ const MOCK_REPORTS_PAGE_DATA: ResponseData = {
     id: idx.toString(),
     title: `проверка ${idx}`,
     description: 'Краткое описание...',
-    lastReportTimestamp: '10.08.2022',
-    lastReportResult: getReportResult(idx),
+    lastInspectionTimestamp: '10.08.2022',
+    lastInspectionStatus: getReportResult(idx),
     conditionsCount: idx,
   })),
 };

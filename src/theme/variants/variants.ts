@@ -33,4 +33,14 @@ export const variants = {
     fontSize: '2rem',
     fontWeight: 600,
   },
+  h2Semibold: {
+    fontFamily,
+    fontSize: '1.75rem',
+    fontWeight: 600,
+  },
+  h3Semibold: {
+    fontFamily,
+    fontSize: '1.5rem',
+    fontWeight: 600,
+  },
 };

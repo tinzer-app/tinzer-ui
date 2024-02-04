@@ -49,16 +49,9 @@ export const getParsedReportsTableData = (reportsData: ReportData[]): TableData 
           },
         },
         {
-          type: CellTypes.text,
+          type: CellTypes.timestamp,
           data: {
-            title: {
-              value: lastInspectionTimestamp,
-            },
-            subtitles: [
-              {
-                value: '12:30',
-              },
-            ],
+            timestamp: lastInspectionTimestamp,
           },
         },
         {

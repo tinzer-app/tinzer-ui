@@ -1,3 +1,8 @@
+/**
+ * ISO8601(YYYY-MM-DD hh:mm:ss) format
+ *
+ * @example '2000-10-31T01:30:00'
+ */
 declare type Timestamp = string;
 
 declare type GenericCondition<T, P> = {

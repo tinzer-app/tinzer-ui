@@ -23,6 +23,9 @@ export const getParsedConditionsTableData = (conditionsData: ConditionData[]): T
   rows: conditionsData.map(
     ({ title, description, creationTimestamp, lastEditionTimestamp, id }) => ({
       id,
+      link: {
+        to: id,
+      },
       cells: [
         {
           type: CellTypes.text,

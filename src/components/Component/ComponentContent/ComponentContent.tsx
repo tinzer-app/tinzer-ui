@@ -4,7 +4,7 @@ import { Tag } from '@components/Tag';
 import { Text } from '@components/Text';
 import { Link } from '@components/Link';
 import { Table } from '@components/Table';
-
+import { Condition } from '@components/Condition';
 import { PageSection } from '@components/PageSection';
 import { TimestampComponent } from '@components/TimestampComponent';
 
@@ -35,6 +35,10 @@ export const ComponentContent: FC<ComponentContentProps> = ({ data }) => {
 
     case ComponentType.tag: {
       return <Tag data={data.data} />;
+    }
+
+    case ComponentType.condition: {
+      return <Condition data={data.data} />;
     }
 
     case ComponentType.timestamp: {

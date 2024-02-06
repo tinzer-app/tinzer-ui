@@ -1,0 +1,1 @@
+export { useLocationId } from './useLocationId';

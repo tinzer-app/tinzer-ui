@@ -1,10 +1,7 @@
-import { InspectionStatus } from '@global/types';
+import { GeneralProjectData, InspectionStatus } from '@global/types';
 
-export interface ProjectData {
+export interface ProjectData extends GeneralProjectData {
   id: string;
-  link: string;
-  title: string;
-  description: string;
   creationTimestamp: Timestamp;
   lastEditionTimestamp: Timestamp;
   lastInspectionStatus: InspectionStatus;

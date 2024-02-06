@@ -6,7 +6,6 @@ import {
   ADDITIONAL_DATA_SECTION_STYLES,
   DATA_SECTION_TITLE_VARIANT,
   GENERAL_DATA_ITEM_STYLES,
-  GENERAL_DATA_SECTION_STYLES,
   HORIZONTAL_GROUP_STYLES,
   PAGE_SECTION_TITLE_VARIANT,
   TIMESTAMP_ITEM_STYLES,
@@ -34,7 +33,6 @@ export const getCheckPageData = ({
           data: [
             {
               type: ComponentType.text,
-              styles: GENERAL_DATA_SECTION_STYLES,
               data: {
                 variant: DATA_SECTION_TITLE_VARIANT,
                 value: 'описание',

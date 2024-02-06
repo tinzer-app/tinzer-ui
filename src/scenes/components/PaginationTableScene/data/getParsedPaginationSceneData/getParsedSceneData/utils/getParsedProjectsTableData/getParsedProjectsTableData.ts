@@ -9,6 +9,9 @@ export const getParsedProjectsTableData = (projectsData: ProjectData[]): TableDa
       title: 'название',
     },
     {
+      title: 'ветка',
+    },
+    {
       title: 'описание',
     },
     {
@@ -25,6 +28,7 @@ export const getParsedProjectsTableData = (projectsData: ProjectData[]): TableDa
     ({
       link,
       title,
+      branch,
       description,
       id,
       creationTimestamp,
@@ -41,6 +45,14 @@ export const getParsedProjectsTableData = (projectsData: ProjectData[]): TableDa
           data: {
             title,
             to: link,
+          },
+        },
+        {
+          type: CellTypes.text,
+          data: {
+            title: {
+              value: branch,
+            },
           },
         },
         {

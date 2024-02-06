@@ -1,0 +1,1 @@
+export { getInitFormData } from './getInitFormData';

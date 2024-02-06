@@ -1,36 +1,40 @@
 import React, { FC } from 'react';
-import { useNavigate } from 'react-router-dom';
 
+import { Table } from '@components/Table';
+import { Snackbar } from '@components/Snackbar';
 import { PageLayout } from '@components/PageLayout';
-import { Table, OnTableRowClick } from '@components/Table';
+import { EditDataModal } from '@components/EditDataModal';
 
-import { Pagination } from './styled';
 import { usePaginationTableSceneData } from './data';
+import { useModal, usePaginationTable } from './utils';
+import { CreateItemButton, CreateItemIcon, Pagination } from './styled';
 
 export const PaginationTableScene: FC = () => {
-  const navigate = useNavigate();
-  const { error, isFetching, data, setRequestParams } = usePaginationTableSceneData();
+  const { error, isFetching, data, setRequestParams, refetchPaginationTableData } =
+    usePaginationTableSceneData();
 
-  const onPageChange = (currentPaginationPage: number) =>
-    setRequestParams({ currentPaginationPage });
+  const { modal, snackbar } = useModal({ refetchPaginationTableData });
+  const { onRowClick, onPageChange } = usePaginationTable({ setRequestParams });
 
-  const onRowClick: OnTableRowClick = ({ link }) => {
-    if (link) {
-      navigate(link.to);
-    }
-  };
+  const { isOpen, onOpen } = modal;
 
   const { tableData, title, paginationData } = data || {};
+  const { pagesCount, currentPage } = paginationData || {};
   const isDataEmpty = !(tableData?.rows?.length && title && paginationData);
 
-  const { pagesCount, currentPage } = paginationData || {};
-
   return (
-    <PageLayout title={title!} isLoading={isFetching} isDataEmpty={isDataEmpty} error={error}>
-      <section>
-        <Table data={tableData!} onRowClick={onRowClick} />
-      </section>
-      <Pagination pagesCount={pagesCount!} initPage={currentPage!} onPageChange={onPageChange} />
-    </PageLayout>
+    <>
+      <Snackbar {...snackbar} />
+      <CreateItemButton onClick={onOpen}>
+        <CreateItemIcon />
+      </CreateItemButton>
+      {isOpen && <EditDataModal {...modal} />}
+      <PageLayout title={title!} isLoading={isFetching} isDataEmpty={isDataEmpty} error={error}>
+        <section>
+          <Table data={tableData!} onRowClick={onRowClick} />
+        </section>
+        <Pagination pagesCount={pagesCount!} initPage={currentPage!} onPageChange={onPageChange} />
+      </PageLayout>
+    </>
   );
 };

@@ -1,12 +1,12 @@
-import { useLocation } from 'react-router-dom';
+import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 
 import { API, IS_MOCK_ACTIVE } from '@api/constants';
 
+import { useLocationId } from '../utils';
 import { getMockData } from './mock';
 import { RequestParams } from './types';
 import { ResponseData, getParsedPaginationSceneData } from './getParsedPaginationSceneData';
-import { useState } from 'react';
 
 const getPaginationTableSceneData = (endpoint: string, requestParams: RequestParams) => {
   if (IS_MOCK_ACTIVE) {
@@ -21,10 +21,8 @@ const getPaginationTableSceneData = (endpoint: string, requestParams: RequestPar
 export const usePaginationTableSceneData = () => {
   const [requestParams, setRequestParams] = useState<RequestParams>({ currentPaginationPage: 1 });
 
-  const { pathname } = useLocation();
+  const endpoint = useLocationId();
 
-  // убираем первый символ /
-  const endpoint = pathname.slice(1);
   const queryKey = [endpoint, requestParams];
   const queryFn = () => getPaginationTableSceneData(endpoint, requestParams);
 
@@ -32,6 +30,7 @@ export const usePaginationTableSceneData = () => {
     data: responseData,
     isFetching,
     error,
+    refetch,
   } = useQuery<ResponseData>({
     queryKey: queryKey,
     queryFn,
@@ -39,5 +38,5 @@ export const usePaginationTableSceneData = () => {
 
   const data = getParsedPaginationSceneData(responseData);
 
-  return { data, isFetching, error, setRequestParams };
+  return { data, refetchPaginationTableData: refetch, isFetching, error, setRequestParams };
 };

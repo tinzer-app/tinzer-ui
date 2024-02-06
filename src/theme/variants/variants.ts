@@ -35,12 +35,12 @@ export const variants = {
   },
   h2Semibold: {
     fontFamily,
-    fontSize: '1.75rem',
+    fontSize: '1.875rem',
     fontWeight: 600,
   },
   h3Semibold: {
     fontFamily,
-    fontSize: '1.5rem',
+    fontSize: '1.75rem',
     fontWeight: 600,
   },
 };

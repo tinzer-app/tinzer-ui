@@ -5,7 +5,7 @@ import { ConditionData, ProjectData, ReportData } from './utils';
 export enum PaginationTableSceneType {
   projects = 'projects',
   conditions = 'conditions',
-  inspections = 'inspection',
+  inspections = 'inspections',
 }
 
 export interface TableSceneData {

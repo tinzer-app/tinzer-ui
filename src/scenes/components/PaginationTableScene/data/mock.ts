@@ -22,6 +22,7 @@ const MOCK_PROJECTS_PAGE_DATA: ResponseData = {
   type: PaginationTableSceneType.projects,
   data: Array.from({ length: 10 }).map((_, idx) => ({
     id: idx.toString(),
+    branch: 'master',
     link: 'https://www.google.com/',
     title: `Проект ${idx}`,
     description: 'Краткое описание...',

@@ -1,0 +1,1 @@
+export { getRequestData } from './getRequestData';

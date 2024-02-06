@@ -1,17 +1,12 @@
+import { ItemType } from '@global/types';
 import { ComponentData } from '@components/Component';
 
 import { CheckPageData, ConditionPageData, ProjectPageData } from './utils';
 
-export enum DynamicLayoutSceneType {
-  project = 'project',
-  condition = 'condition',
-  inspection = 'inspection',
-}
-
 export type ResponseData =
-  | GenericData<DynamicLayoutSceneType.project, ProjectPageData>
-  | GenericData<DynamicLayoutSceneType.condition, ConditionPageData>
-  | GenericData<DynamicLayoutSceneType.inspection, CheckPageData>;
+  | GenericData<ItemType.project, ProjectPageData>
+  | GenericData<ItemType.condition, ConditionPageData>
+  | GenericData<ItemType.inspection, CheckPageData>;
 
 export interface DynamicLayoutSceneData {
   title: string;

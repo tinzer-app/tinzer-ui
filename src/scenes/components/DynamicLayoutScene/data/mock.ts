@@ -3,9 +3,10 @@ import {
   ConditionData,
   ConditionType,
   SingleParamConditionData,
+  ItemType,
 } from '@global/types';
 
-import { DynamicLayoutSceneType, ResponseData } from './getParsedDynamicLayoutData';
+import { ResponseData } from './getParsedDynamicLayoutData';
 
 const MOCK_DATE_FNS_CONDITIONS: ConditionData[] = [
   {
@@ -67,7 +68,7 @@ const MOCK_DATE_FNS_SINGLE_CONDITIONS: SingleParamConditionData[] = [
 ];
 
 const MOCK_PROJECT_PAGE_DATA: ResponseData = {
-  type: DynamicLayoutSceneType.project,
+  type: ItemType.project,
   data: {
     id: 'proj-date-fns',
     title: 'date-fns',
@@ -82,7 +83,7 @@ const MOCK_PROJECT_PAGE_DATA: ResponseData = {
 };
 
 const MOCK_CONDITION_PAGE_DATA: ResponseData = {
-  type: DynamicLayoutSceneType.condition,
+  type: ItemType.condition,
   data: {
     id: 'cond-date-fns',
     title: 'Лицензия и описание',
@@ -95,7 +96,7 @@ const MOCK_CONDITION_PAGE_DATA: ResponseData = {
 };
 
 const MOCK_CHECK_PAGE_DATA: ResponseData = {
-  type: DynamicLayoutSceneType.inspection,
+  type: ItemType.inspection,
   data: {
     id: 'check-date-fns',
     title: 'Проверка package.json в date-fns',

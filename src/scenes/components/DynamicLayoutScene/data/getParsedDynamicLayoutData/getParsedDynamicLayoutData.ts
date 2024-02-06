@@ -1,19 +1,21 @@
+import { ItemType } from '@global/types';
+
 import { getCheckPageData, getConditionPageData, getProjectPageData } from './utils';
-import { DynamicLayoutSceneData, DynamicLayoutSceneType, ResponseData } from './types';
+import { DynamicLayoutSceneData, ResponseData } from './types';
 
 export const getParsedDynamicLayoutData = (
   responseData?: ResponseData | null,
 ): DynamicLayoutSceneData | null => {
   switch (responseData?.type) {
-    case DynamicLayoutSceneType.project: {
+    case ItemType.project: {
       return getProjectPageData(responseData.data);
     }
 
-    case DynamicLayoutSceneType.condition: {
+    case ItemType.condition: {
       return getConditionPageData(responseData.data);
     }
 
-    case DynamicLayoutSceneType.inspection: {
+    case ItemType.inspection: {
       return getCheckPageData(responseData.data);
     }
 

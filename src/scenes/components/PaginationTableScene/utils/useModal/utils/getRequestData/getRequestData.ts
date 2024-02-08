@@ -1,8 +1,8 @@
 import { ItemType } from '@global/types';
-import { getTextFieldFormData } from '@components/EditDataModal';
+import { getConditions, getTextFieldFormData } from '@components/EditDataModal';
 import { PaginationTableSceneType } from '@scenes/components/PaginationTableScene/data';
 
-import { BRANCH_ID, DESCRIPTION_ID, LINK_ID, TITLE_ID } from '../../constants';
+import { BRANCH_ID, CONDITIONS_ID, DESCRIPTION_ID, LINK_ID, TITLE_ID } from '../../constants';
 import { QueryData } from '../useSaveItemMutation';
 import { GetRequestDataParams } from './types';
 
@@ -25,6 +25,16 @@ export const getRequestData = ({
           ...generalData,
           branch: getTextValue(BRANCH_ID),
           link: getTextValue(LINK_ID),
+        },
+      };
+    }
+
+    case PaginationTableSceneType.conditions: {
+      return {
+        type: ItemType.condition,
+        data: {
+          ...generalData,
+          conditions: getConditions(formData, CONDITIONS_ID),
         },
       };
     }

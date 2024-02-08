@@ -10,6 +10,12 @@ export const getSnackbarTitle = ({ data, success }: GetSnackbarTitleParams) => {
         : `не удалось создать проект "${data.data.title}"`;
     }
 
+    case ItemType.condition: {
+      return success
+        ? `правило "${data.data.title}" создано`
+        : `не удалось создать правило "${data.data.title}"`;
+    }
+
     default: {
       return '';
     }

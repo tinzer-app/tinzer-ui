@@ -1,2 +1,2 @@
 export { useTextInput } from './useTextInput';
-export { getTextFieldFormData } from './utils';
+export { getTextFieldFormData, getIsInputValid } from './utils';

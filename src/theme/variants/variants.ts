@@ -18,6 +18,12 @@ export const variants = {
     fontSize: '0.875rem',
     fontWeight: 400,
   },
+  body2Italic: {
+    fontFamily,
+    fontSize: '0.875rem',
+    fontWeight: 400,
+    fontStyle: 'italic',
+  },
   body2Semibold: {
     fontFamily,
     fontSize: '0.875rem',

@@ -1,0 +1,1 @@
+export { getConditions } from './getConditions';

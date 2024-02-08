@@ -1,0 +1,1 @@
+export { onDeleteCondition } from './onDeleteCondition';

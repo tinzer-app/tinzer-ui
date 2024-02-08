@@ -4,7 +4,7 @@ import { NodeProps } from './types';
 import { ExpandButton, ExpandIcon, NodeWrapper } from './styled';
 
 export const Node: FC<NodeProps> = ({ data, lvl }) => {
-  const { Element, children } = data;
+  const { Element, children, expandButtonStyles } = data;
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -17,7 +17,10 @@ export const Node: FC<NodeProps> = ({ data, lvl }) => {
     <>
       <NodeWrapper lvl={lvl} isLeaf={isLeaf}>
         {!isLeaf && (
-          <ExpandButton onClick={onButtonClick}>
+          <ExpandButton
+            type="button"
+            onClick={onButtonClick}
+            expandButtonStyles={expandButtonStyles}>
             <ExpandIcon direction={iconDirection} />
           </ExpandButton>
         )}

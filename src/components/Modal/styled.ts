@@ -33,9 +33,11 @@ export const ModalContent = styled('div')(
     transform: 'translate(-50%, -50%)',
     width: 750,
     minHeight: 500,
+    maxHeight: '90vh',
     backgroundColor: 'backgroundPrimary',
     borderRadius: 6,
     outline: 0,
+    overflowY: 'auto',
   }),
 );
 

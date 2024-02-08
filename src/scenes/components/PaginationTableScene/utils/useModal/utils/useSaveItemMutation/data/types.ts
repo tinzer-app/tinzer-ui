@@ -1,8 +1,10 @@
-import { GeneralProjectData, ItemType } from '@global/types';
+import { GeneralConditionData, GeneralProjectData, ItemType } from '@global/types';
 
 type QueryCallback = (params: QueryParams) => void;
 
-export type QueryData = GenericData<ItemType.project, GeneralProjectData>;
+export type QueryData =
+  | GenericData<ItemType.project, GeneralProjectData>
+  | GenericData<ItemType.condition, GeneralConditionData>;
 
 export interface QueryParams {
   data: QueryData;

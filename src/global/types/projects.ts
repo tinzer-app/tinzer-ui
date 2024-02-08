@@ -1,6 +1,6 @@
-export interface GeneralProjectData {
+import { GeneralItemData } from './common';
+
+export interface GeneralProjectData extends GeneralItemData {
   link: string;
-  title: string;
-  description: string;
   branch: string;
 }

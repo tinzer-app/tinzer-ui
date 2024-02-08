@@ -2,6 +2,7 @@ import css from '@styled-system/css';
 import styled from 'styled-components';
 
 import { InputComponent as Input } from '../../styled';
+import { INVALID_INPUT_BOX_SHADOW } from '../../constants';
 
 interface InputProps {
   isValid: boolean;
@@ -24,6 +25,6 @@ export const InputComponent = styled(Input)<InputProps>(({ theme: { colors }, is
     ? {}
     : {
         borderColor: colors.error,
-        boxShadow: '0px 0px 5px 1px rgba(255,0,0,1);',
+        boxShadow: INVALID_INPUT_BOX_SHADOW,
       }),
 }));

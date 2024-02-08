@@ -1,10 +1,7 @@
-import { ConditionData } from '@global/types';
+import { GeneralConditionData } from '@global/types';
 
-export interface ConditionPageData {
-  title: string;
+export interface ConditionPageData extends GeneralConditionData {
   id: string;
-  description: string;
   creationTimestamp: Timestamp;
   lastEditionTimestamp: Timestamp;
-  conditions: ConditionData[];
 }

@@ -1,4 +1,4 @@
-import { GeneralConditionData, GeneralItemData, GeneralProjectData, ItemType } from '@global/types';
+import { GeneralConditionData, GeneralItemData, RepositoryData, ItemType } from '@global/types';
 
 type QueryCallback = (params: QueryParams) => void;
 
@@ -11,8 +11,17 @@ interface InspectionData extends GeneralItemData {
   prjects: WithId[];
 }
 
+interface ProjectRepositoryData extends Omit<RepositoryData, 'link'> {
+  title: string;
+  ownerNickname: string;
+}
+
+interface ProjectData extends GeneralItemData {
+  repository: ProjectRepositoryData;
+}
+
 export type QueryData =
-  | GenericData<ItemType.project, GeneralProjectData>
+  | GenericData<ItemType.project, ProjectData>
   | GenericData<ItemType.condition, GeneralConditionData>
   | GenericData<ItemType.inspection, InspectionData>;
 

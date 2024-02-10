@@ -4,8 +4,9 @@ import {
   BRANCH_ID,
   CONDITIONS_ID,
   DESCRIPTION_ID,
-  LINK_ID,
+  OWNER_NICKNAME_ID,
   PROJECTS_ID,
+  REPOSITORY_TITLE_ID,
   TITLE_ID,
 } from '../../constants';
 
@@ -23,12 +24,31 @@ export const PROJECTS_MODAL_DATA: EditDataModalData = {
       },
     },
     {
-      label: 'ссылка *',
+      label: 'описание',
       input: {
         type: InputType.text,
-        id: LINK_ID,
+        id: DESCRIPTION_ID,
         data: {
-          inputType: 'url',
+          inputType: 'textArea',
+        },
+      },
+    },
+    {
+      label: 'название репозитория *',
+      input: {
+        type: InputType.text,
+        id: REPOSITORY_TITLE_ID,
+        data: {
+          isRequired: true,
+        },
+      },
+    },
+    {
+      label: 'никнейм владельца репозитория *',
+      input: {
+        type: InputType.text,
+        id: OWNER_NICKNAME_ID,
+        data: {
           isRequired: true,
         },
       },
@@ -40,16 +60,6 @@ export const PROJECTS_MODAL_DATA: EditDataModalData = {
         id: BRANCH_ID,
         data: {
           isRequired: true,
-        },
-      },
-    },
-    {
-      label: 'описание',
-      input: {
-        type: InputType.text,
-        id: DESCRIPTION_ID,
-        data: {
-          inputType: 'textArea',
         },
       },
     },

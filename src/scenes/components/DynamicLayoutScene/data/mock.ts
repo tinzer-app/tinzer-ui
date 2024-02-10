@@ -74,8 +74,10 @@ const MOCK_PROJECT_PAGE_DATA: ResponseData = {
     title: 'date-fns',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl nunc mi ipsum faucibus vitae aliquet. Purus faucibus ornare suspendisse sed nisi. Urna condimentum mattis pellentesque id nibh tortor id aliquet lectus. Commodo elit at imperdiet dui accumsan sit amet nulla facilisi. Laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt. Aliquam vestibulum morbi blandit cursus risus at. Risus at ultrices mi tempus imperdiet. Orci eu lobortis elementum nibh.',
-    link: 'https://github.com/date-fns/date-fns',
-    branch: 'main',
+    repository: {
+      link: 'https://github.com/date-fns/date-fns',
+      branch: 'main',
+    },
     creationTimestamp: '2023-01-07 21:32:11',
     lastEditionTimestamp: '2023-12-24 11:05:58',
     lastInspectionStatus: InspectionStatus.success,

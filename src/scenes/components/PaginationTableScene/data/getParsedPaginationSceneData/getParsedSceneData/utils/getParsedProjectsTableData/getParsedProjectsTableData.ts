@@ -26,9 +26,8 @@ export const getParsedProjectsTableData = (projectsData: ProjectData[]): TableDa
   ],
   rows: projectsData.map(
     ({
-      link,
+      repository: { link, branch },
       title,
-      branch,
       description,
       id,
       creationTimestamp,

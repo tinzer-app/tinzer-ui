@@ -10,8 +10,9 @@ import {
   BRANCH_ID,
   CONDITIONS_ID,
   DESCRIPTION_ID,
-  LINK_ID,
+  OWNER_NICKNAME_ID,
   PROJECTS_ID,
+  REPOSITORY_TITLE_ID,
   TITLE_ID,
 } from '../../constants';
 import { QueryData } from '../useSaveItemMutation';
@@ -36,8 +37,11 @@ export const getRequestData = ({
         type: ItemType.project,
         data: {
           ...generalData,
-          branch: getTextValue(BRANCH_ID),
-          link: getTextValue(LINK_ID),
+          repository: {
+            branch: getTextValue(BRANCH_ID),
+            title: getTextValue(REPOSITORY_TITLE_ID),
+            ownerNickname: getTextValue(OWNER_NICKNAME_ID),
+          },
         },
       };
     }

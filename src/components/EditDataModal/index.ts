@@ -7,5 +7,5 @@ export {
   getConditions,
   getSearchItems,
 } from './components';
-export type { InputConfig, InputData } from './components';
+export type { InputConfig, InputData, SearchInputItem } from './components';
 export { useEditDataModalContext } from './context';

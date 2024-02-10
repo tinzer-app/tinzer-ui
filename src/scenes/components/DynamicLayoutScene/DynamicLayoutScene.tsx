@@ -1,18 +1,34 @@
 import React, { FC } from 'react';
 
+import { Snackbar } from '@components/Snackbar';
 import { Component } from '@components/Component';
 import { PageLayout } from '@components/PageLayout';
+import { EditDataModal } from '@components/EditDataModal';
 
-import { useDynamicLayoutSceneData } from './data';
+import { useModal } from './useModal';
+import { getParsedDynamicLayoutData, useDynamicLayoutSceneData } from './data';
 
 export const DynamicLayoutScene: FC = () => {
-  const { data, isFetching, error } = useDynamicLayoutSceneData();
+  const { isFetching, error, responseData, refetch } = useDynamicLayoutSceneData();
 
-  const { title, data: componentsData } = data || {};
+  const { modal, snackbar } = useModal({ responseData, refetch });
+  const { isOpen, onOpen } = modal;
+
+  const data = getParsedDynamicLayoutData({ responseData, onModalOpen: onOpen });
+  const { title, controls, data: componentsData } = data || {};
 
   return (
-    <PageLayout title={title!} isDataEmpty={!data} isLoading={isFetching} error={error}>
-      {componentsData?.map((componentData, idx) => <Component data={componentData} key={idx} />)}
-    </PageLayout>
+    <>
+      <Snackbar {...snackbar} />
+      {isOpen && <EditDataModal {...modal} />}
+      <PageLayout
+        title={title!}
+        controls={controls}
+        isDataEmpty={!data}
+        isLoading={isFetching}
+        error={error}>
+        {componentsData?.map((componentData, idx) => <Component data={componentData} key={idx} />)}
+      </PageLayout>
+    </>
   );
 };

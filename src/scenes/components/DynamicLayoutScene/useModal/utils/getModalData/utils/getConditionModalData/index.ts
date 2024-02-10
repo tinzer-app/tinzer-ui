@@ -1,0 +1,1 @@
+export { getConditionModalData } from './getConditionModalData';

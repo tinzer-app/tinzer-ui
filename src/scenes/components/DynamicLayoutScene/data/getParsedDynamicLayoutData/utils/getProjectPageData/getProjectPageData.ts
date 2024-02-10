@@ -13,17 +13,35 @@ import {
   TIMESTAMP_ITEM_STYLES,
 } from '../constants';
 import { ProjectPageData } from './types';
+import { ButtonControlIconType, ControlType } from '@global/types';
 
-export const getProjectPageData = ({
+export const getProjectPageData = (
+  {
+    title,
+    id,
+    description,
+    repository: { link, branch },
+    lastInspectionStatus,
+    creationTimestamp,
+    lastEditionTimestamp,
+  }: ProjectPageData,
+  onModalOpen: () => void,
+): DynamicLayoutSceneData => ({
   title,
-  id,
-  description,
-  repository: { link, branch },
-  lastInspectionStatus,
-  creationTimestamp,
-  lastEditionTimestamp,
-}: ProjectPageData): DynamicLayoutSceneData => ({
-  title,
+  controls: [
+    {
+      type: ControlType.button,
+      data: {
+        icon: {
+          type: ButtonControlIconType.settings,
+          data: {
+            size: 16,
+          },
+        },
+        onClick: onModalOpen,
+      },
+    },
+  ],
   data: [
     {
       type: ComponentType.horizontalComponentsGroup,

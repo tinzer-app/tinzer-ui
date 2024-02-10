@@ -1,6 +1,7 @@
 import { ComponentType } from '@components/Component';
 import { TagComponent } from '@components/Tag/styled';
 import { getTagDataOfReportResult } from '@global/utils';
+import { ButtonControlIconType, ControlType } from '@global/types';
 
 import {
   ADDITIONAL_DATA_SECTION_STYLES,
@@ -14,15 +15,32 @@ import { DynamicLayoutSceneData } from '../../types';
 import { CheckPageData } from './types';
 import { getInspectionResultTableData } from './getInspectionResultTableData';
 
-export const getCheckPageData = ({
+export const getCheckPageData = (
+  {
+    title,
+    description,
+    creationTimestamp,
+    lastEditionTimestamp,
+    inspectionData,
+    lastInspectionTimestamp,
+  }: CheckPageData,
+  onModalOpen: () => void,
+): DynamicLayoutSceneData => ({
   title,
-  description,
-  creationTimestamp,
-  lastEditionTimestamp,
-  inspectionData,
-  lastInspectionTimestamp,
-}: CheckPageData): DynamicLayoutSceneData => ({
-  title,
+  controls: [
+    {
+      type: ControlType.button,
+      data: {
+        icon: {
+          type: ButtonControlIconType.settings,
+          data: {
+            size: 16,
+          },
+        },
+        onClick: onModalOpen,
+      },
+    },
+  ],
   data: [
     {
       type: ComponentType.horizontalComponentsGroup,

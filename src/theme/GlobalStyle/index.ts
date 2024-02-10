@@ -13,4 +13,7 @@ export const GlobalStyle = createGlobalStyle(({ theme: { colors } }) => ({
     padding: 0,
     backgroundColor: colors.backgroundPrimary,
   },
+  h1: {
+    margin: 0,
+  },
 }));

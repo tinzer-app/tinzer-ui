@@ -5,7 +5,7 @@ import { API, IS_MOCK_ACTIVE } from '@api/constants';
 
 import { getMockData } from './mock';
 import { RequestParams } from './types';
-import { ResponseData, getParsedDynamicLayoutData } from './getParsedDynamicLayoutData';
+import { ResponseData } from './getParsedDynamicLayoutData';
 
 const getDynamicLayoutSceneData = (endpoint: string, requestParams: RequestParams) => {
   if (IS_MOCK_ACTIVE) {
@@ -31,12 +31,11 @@ export const useDynamicLayoutSceneData = () => {
     data: responseData,
     isFetching,
     error,
+    refetch,
   } = useQuery<ResponseData>({
     queryKey,
     queryFn,
   });
 
-  const data = getParsedDynamicLayoutData(responseData);
-
-  return { data, isFetching, error };
+  return { isFetching, error, responseData, refetch };
 };

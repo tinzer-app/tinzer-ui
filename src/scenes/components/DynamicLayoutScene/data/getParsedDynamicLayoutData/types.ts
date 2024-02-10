@@ -1,4 +1,4 @@
-import { ItemType } from '@global/types';
+import { ControlData, ItemType } from '@global/types';
 import { ComponentData } from '@components/Component';
 
 import { CheckPageData, ConditionPageData, ProjectPageData } from './utils';
@@ -11,4 +11,10 @@ export type ResponseData =
 export interface DynamicLayoutSceneData {
   title: string;
   data: ComponentData[];
+  controls?: ControlData[];
+}
+
+export interface GetParsedDynamicLayoutDataParams {
+  onModalOpen: () => void;
+  responseData?: ResponseData | null;
 }

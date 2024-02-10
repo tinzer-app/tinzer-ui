@@ -77,6 +77,8 @@ const MOCK_PROJECT_PAGE_DATA: ResponseData = {
     repository: {
       link: 'https://github.com/date-fns/date-fns',
       branch: 'main',
+      title: 'date-fns',
+      ownerNickname: 'johnDate-fns',
     },
     creationTimestamp: '2023-01-07 21:32:11',
     lastEditionTimestamp: '2023-12-24 11:05:58',
@@ -100,6 +102,30 @@ const MOCK_CONDITION_PAGE_DATA: ResponseData = {
 const MOCK_CHECK_PAGE_DATA: ResponseData = {
   type: ItemType.inspection,
   data: {
+    projects: [
+      {
+        title: 'проект 1',
+        id: 'проект 1',
+      },
+      {
+        title: 'date-fns',
+        id: 'date-fns',
+      },
+      {
+        title: 'ui-library',
+        id: 'ui-library',
+      },
+    ],
+    conditions: [
+      {
+        title: 'шаблон 1',
+        id: 'шаблон 1',
+      },
+      {
+        title: 'наличие dockerfile',
+        id: 'наличие dockerfile',
+      },
+    ],
     id: 'check-date-fns',
     title: 'Проверка package.json в date-fns',
     description:

@@ -7,4 +7,4 @@ export {
   getConditions,
   getSearchItems,
 } from './Input';
-export type { InputData, InputConfig } from './Input';
+export type { InputData, InputConfig, SearchInputItem } from './Input';

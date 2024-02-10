@@ -6,14 +6,14 @@ import { PageLayout } from '@components/PageLayout';
 import { EditDataModal } from '@components/EditDataModal';
 
 import { usePaginationTableSceneData } from './data';
-import { useModal, usePaginationTable } from './utils';
+import { usePaginationModal, usePaginationTable } from './utils';
 import { CreateItemButton, CreateItemIcon, Pagination } from './styled';
 
 export const PaginationTableScene: FC = () => {
   const { error, isFetching, data, setRequestParams, refetchPaginationTableData } =
     usePaginationTableSceneData();
 
-  const { modal, snackbar } = useModal({ refetchPaginationTableData });
+  const { modal, snackbar } = usePaginationModal({ refetchPaginationTableData });
   const { onRowClick, onPageChange } = usePaginationTable({ setRequestParams });
 
   const { isOpen, onOpen } = modal;

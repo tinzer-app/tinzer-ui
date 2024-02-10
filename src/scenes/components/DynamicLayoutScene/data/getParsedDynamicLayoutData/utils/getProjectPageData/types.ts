@@ -1,8 +1,18 @@
-import { GeneralProjectData, InspectionStatus } from '@global/types';
+import {
+  GeneralProjectData,
+  InspectionStatus,
+  RepositoryData as RepositoryDataCore,
+} from '@global/types';
 
-export interface ProjectPageData extends GeneralProjectData {
+interface RepositoryData extends RepositoryDataCore {
+  title: string;
+  ownerNickname: string;
+}
+
+export interface ProjectPageData extends Omit<GeneralProjectData, 'repository'> {
   id: string;
   creationTimestamp: Timestamp;
   lastEditionTimestamp: Timestamp;
   lastInspectionStatus: InspectionStatus;
+  repository: RepositoryData;
 }

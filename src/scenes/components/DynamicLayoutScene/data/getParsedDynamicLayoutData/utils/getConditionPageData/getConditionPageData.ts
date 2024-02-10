@@ -1,4 +1,5 @@
 import { ComponentType } from '@components/Component';
+import { ButtonControlIconType, ControlType } from '@global/types';
 
 import { DynamicLayoutSceneData } from '../../types';
 import {
@@ -13,15 +14,32 @@ import {
 } from '../constants';
 import { ConditionPageData } from './types';
 
-export const getConditionPageData = ({
+export const getConditionPageData = (
+  {
+    title,
+    description,
+    creationTimestamp,
+    lastEditionTimestamp,
+    id,
+    conditions,
+  }: ConditionPageData,
+  onModalOpen: () => void,
+): DynamicLayoutSceneData => ({
   title,
-  description,
-  creationTimestamp,
-  lastEditionTimestamp,
-  id,
-  conditions,
-}: ConditionPageData): DynamicLayoutSceneData => ({
-  title,
+  controls: [
+    {
+      type: ControlType.button,
+      data: {
+        icon: {
+          type: ButtonControlIconType.settings,
+          data: {
+            size: 16,
+          },
+        },
+        onClick: onModalOpen,
+      },
+    },
+  ],
   data: [
     {
       type: ComponentType.horizontalComponentsGroup,

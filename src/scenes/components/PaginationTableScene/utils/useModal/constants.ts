@@ -3,8 +3,9 @@ export const TITLE_ID = 'title';
 export const DESCRIPTION_ID = 'description';
 
 // project
+export const REPOSITORY_TITLE_ID = 'repo_title';
+export const OWNER_NICKNAME_ID = 'owner_nickname';
 export const BRANCH_ID = 'branch';
-export const LINK_ID = 'link';
 export const PROJECTS_ID = 'projects';
 
 // condition

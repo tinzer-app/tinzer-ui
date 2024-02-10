@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 
 import { Text } from '@components/Text';
+import { Layout } from '@components/Layout';
 
-import { Layout } from './Layout';
 import { PageLayoutProps } from './types';
 import { Header } from './styled';
 

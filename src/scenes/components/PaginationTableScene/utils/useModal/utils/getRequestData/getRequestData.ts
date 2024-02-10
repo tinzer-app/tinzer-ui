@@ -1,8 +1,19 @@
 import { ItemType } from '@global/types';
-import { getConditions, getTextFieldFormData } from '@components/EditDataModal';
 import { PaginationTableSceneType } from '@scenes/components/PaginationTableScene/data';
+import {
+  getConditions as getConditionsFormData,
+  getTextFieldFormData,
+  getSearchItems as getSearchItemsFromData,
+} from '@components/EditDataModal';
 
-import { BRANCH_ID, CONDITIONS_ID, DESCRIPTION_ID, LINK_ID, TITLE_ID } from '../../constants';
+import {
+  BRANCH_ID,
+  CONDITIONS_ID,
+  DESCRIPTION_ID,
+  LINK_ID,
+  PROJECTS_ID,
+  TITLE_ID,
+} from '../../constants';
 import { QueryData } from '../useSaveItemMutation';
 import { GetRequestDataParams } from './types';
 
@@ -11,6 +22,8 @@ export const getRequestData = ({
   formData,
 }: GetRequestDataParams): QueryData | null => {
   const getTextValue = (id: string) => getTextFieldFormData({ id, formData }) || '';
+  const getConditions = (id: string) => getConditionsFormData(formData, id);
+  const getSearchItems = (id: string) => getSearchItemsFromData(formData, id);
 
   const generalData = {
     title: getTextValue(TITLE_ID),
@@ -34,7 +47,18 @@ export const getRequestData = ({
         type: ItemType.condition,
         data: {
           ...generalData,
-          conditions: getConditions(formData, CONDITIONS_ID),
+          conditions: getConditions(CONDITIONS_ID),
+        },
+      };
+    }
+
+    case PaginationTableSceneType.inspections: {
+      return {
+        type: ItemType.inspection,
+        data: {
+          ...generalData,
+          conditions: getSearchItems(CONDITIONS_ID),
+          prjects: getSearchItems(PROJECTS_ID),
         },
       };
     }

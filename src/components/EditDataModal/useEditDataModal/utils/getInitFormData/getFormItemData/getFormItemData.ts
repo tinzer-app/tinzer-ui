@@ -12,6 +12,15 @@ export const getFormItemData = (inputConfig: InputConfig): InputData => {
       };
     }
 
+    case InputType.search: {
+      return {
+        type: inputConfig.type,
+        data: {
+          items: inputConfig.data.initItems,
+        },
+      };
+    }
+
     default: {
       return {
         type: inputConfig.type,

@@ -1,8 +1,8 @@
 import { ReactNode } from 'react';
 
 export interface LayoutProps {
-  children: ReactNode;
   isLoading: boolean;
   isDataEmpty: boolean;
+  children?: ReactNode;
   error?: any;
 }

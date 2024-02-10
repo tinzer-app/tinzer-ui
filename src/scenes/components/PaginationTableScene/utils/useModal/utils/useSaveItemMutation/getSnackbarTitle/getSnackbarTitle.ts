@@ -16,6 +16,12 @@ export const getSnackbarTitle = ({ data, success }: GetSnackbarTitleParams) => {
         : `не удалось создать правило "${data.data.title}"`;
     }
 
+    case ItemType.inspection: {
+      return success
+        ? `проверка "${data.data.title}" создана`
+        : `не удалось создать проверку "${data.data.title}"`;
+    }
+
     default: {
       return '';
     }

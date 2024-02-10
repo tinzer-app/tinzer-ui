@@ -5,6 +5,7 @@ export const DESCRIPTION_ID = 'description';
 // project
 export const BRANCH_ID = 'branch';
 export const LINK_ID = 'link';
+export const PROJECTS_ID = 'projects';
 
 // condition
 export const CONDITIONS_ID = 'conditions';

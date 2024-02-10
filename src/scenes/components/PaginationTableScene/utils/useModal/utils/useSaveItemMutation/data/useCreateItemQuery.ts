@@ -5,7 +5,7 @@ import { API } from '@api/constants';
 import { QueryParams, UseCreateItemQueryParams } from './types';
 
 const mutationFn = (params: QueryParams) =>
-  API.post(`${params.data.type}Creating`, {
+  API.post(`https://andruxnet-random-famous-quotes.p.rapidapi.com/`, {
     body: JSON.stringify(params),
   }).json<void>();
 

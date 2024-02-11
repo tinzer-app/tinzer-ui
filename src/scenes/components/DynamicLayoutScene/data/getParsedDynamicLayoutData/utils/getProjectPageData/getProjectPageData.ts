@@ -27,6 +27,7 @@ export const getProjectPageData = ({
     lastEditionTimestamp,
   },
   onModalOpen,
+  onDeleteItem,
 }: GetProjectPageDataParams): DynamicLayoutSceneData => ({
   title,
   controls: [
@@ -40,6 +41,18 @@ export const getProjectPageData = ({
           },
         },
         onClick: onModalOpen,
+      },
+    },
+    {
+      type: ControlType.button,
+      data: {
+        icon: {
+          type: ButtonControlIconType.delete,
+          data: {
+            size: CONTROL_ICONS_SIZE,
+          },
+        },
+        onClick: () => onDeleteItem({ id }),
       },
     },
   ],

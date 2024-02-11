@@ -28,6 +28,7 @@ export const getCheckPageData = ({
   },
   onModalOpen,
   onRunInspection,
+  onDeleteItem,
 }: GetCheckPageDataParams): DynamicLayoutSceneData => ({
   title,
   controls: [
@@ -53,6 +54,18 @@ export const getCheckPageData = ({
           },
         },
         onClick: onModalOpen,
+      },
+    },
+    {
+      type: ControlType.button,
+      data: {
+        icon: {
+          type: ButtonControlIconType.delete,
+          data: {
+            size: CONTROL_ICONS_SIZE,
+          },
+        },
+        onClick: () => onDeleteItem({ id }),
       },
     },
   ],

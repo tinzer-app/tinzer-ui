@@ -1,2 +1,2 @@
 export { usePageButtons } from './usePageButtons';
-export type { OnRunInspection } from './types';
+export type { OnRunInspection, OnDeleteItem } from './types';

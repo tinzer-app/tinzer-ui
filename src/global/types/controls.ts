@@ -10,11 +10,10 @@ export interface ButtonControlData {
 export enum ButtonControlIconType {
   settings = 'settings',
   run = 'run',
+  delete = 'delete',
 }
 
-export type IconData =
-  | GenericData<ButtonControlIconType.settings, SettingsIconData>
-  | GenericData<ButtonControlIconType.run, SettingsIconData>;
+export type IconData = GenericData<ButtonControlIconType, SettingsIconData>;
 
 export enum ControlType {
   button = 'button',

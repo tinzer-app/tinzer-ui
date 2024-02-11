@@ -17,4 +17,5 @@ export const colors = {
   error: '#FFEAF1',
   oceanBlue: '#0066FF',
   darkOceanBlue: '#005DE8',
+  brightRed: '#ce2c2c',
 };

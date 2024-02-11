@@ -14,9 +14,14 @@ export const DynamicLayoutScene: FC = () => {
   const { modal, snackbar } = useModal({ responseData, refetch });
   const { isOpen, onOpen } = modal;
 
-  const { onRunInspection } = usePageButtons();
+  const { onRunInspection, onDeleteItem } = usePageButtons();
 
-  const data = getParsedDynamicLayoutData({ responseData, onRunInspection, onModalOpen: onOpen });
+  const data = getParsedDynamicLayoutData({
+    responseData,
+    onRunInspection,
+    onDeleteItem,
+    onModalOpen: onOpen,
+  });
   const { title, controls, data: componentsData } = data || {};
 
   return (

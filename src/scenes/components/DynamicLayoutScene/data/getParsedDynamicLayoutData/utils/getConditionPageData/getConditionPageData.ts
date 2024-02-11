@@ -18,6 +18,7 @@ import { GetConditionPageDataParams } from './types';
 export const getConditionPageData = ({
   data: { title, description, creationTimestamp, lastEditionTimestamp, id, conditions },
   onModalOpen,
+  onDeleteItem,
 }: GetConditionPageDataParams): DynamicLayoutSceneData => ({
   title,
   controls: [
@@ -31,6 +32,18 @@ export const getConditionPageData = ({
           },
         },
         onClick: onModalOpen,
+      },
+    },
+    {
+      type: ControlType.button,
+      data: {
+        icon: {
+          type: ButtonControlIconType.delete,
+          data: {
+            size: CONTROL_ICONS_SIZE,
+          },
+        },
+        onClick: () => onDeleteItem({ id }),
       },
     },
   ],

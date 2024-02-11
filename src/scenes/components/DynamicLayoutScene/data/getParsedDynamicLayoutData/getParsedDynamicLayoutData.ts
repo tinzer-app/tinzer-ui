@@ -5,19 +5,19 @@ import { DynamicLayoutSceneData, GetParsedDynamicLayoutDataParams } from './type
 
 export const getParsedDynamicLayoutData = ({
   responseData,
-  onModalOpen,
+  ...restParams
 }: GetParsedDynamicLayoutDataParams): DynamicLayoutSceneData | null => {
   switch (responseData?.type) {
     case ItemType.project: {
-      return getProjectPageData(responseData.data, onModalOpen);
+      return getProjectPageData({ data: responseData.data, ...restParams });
     }
 
     case ItemType.condition: {
-      return getConditionPageData(responseData.data, onModalOpen);
+      return getConditionPageData({ data: responseData.data, ...restParams });
     }
 
     case ItemType.inspection: {
-      return getCheckPageData(responseData.data, onModalOpen);
+      return getCheckPageData({ data: responseData.data, ...restParams });
     }
 
     default: {

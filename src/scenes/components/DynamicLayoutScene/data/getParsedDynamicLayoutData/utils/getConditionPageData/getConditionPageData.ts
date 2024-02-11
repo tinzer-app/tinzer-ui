@@ -4,6 +4,7 @@ import { ButtonControlIconType, ControlType } from '@global/types';
 import { DynamicLayoutSceneData } from '../../types';
 import {
   ADDITIONAL_DATA_SECTION_STYLES,
+  CONTROL_ICONS_SIZE,
   DATA_SECTION_TITLE_VARIANT,
   GENERAL_DATA_ITEM_STYLES,
   GENERAL_DATA_SECTION_STYLES,
@@ -12,19 +13,12 @@ import {
   PAGE_SECTION_TITLE_VARIANT,
   TIMESTAMP_ITEM_STYLES,
 } from '../constants';
-import { ConditionPageData } from './types';
+import { GetConditionPageDataParams } from './types';
 
-export const getConditionPageData = (
-  {
-    title,
-    description,
-    creationTimestamp,
-    lastEditionTimestamp,
-    id,
-    conditions,
-  }: ConditionPageData,
-  onModalOpen: () => void,
-): DynamicLayoutSceneData => ({
+export const getConditionPageData = ({
+  data: { title, description, creationTimestamp, lastEditionTimestamp, id, conditions },
+  onModalOpen,
+}: GetConditionPageDataParams): DynamicLayoutSceneData => ({
   title,
   controls: [
     {
@@ -33,7 +27,7 @@ export const getConditionPageData = (
         icon: {
           type: ButtonControlIconType.settings,
           data: {
-            size: 16,
+            size: CONTROL_ICONS_SIZE,
           },
         },
         onClick: onModalOpen,

@@ -5,6 +5,7 @@ import { ButtonControlIconType, ControlType } from '@global/types';
 
 import {
   ADDITIONAL_DATA_SECTION_STYLES,
+  CONTROL_ICONS_SIZE,
   DATA_SECTION_TITLE_VARIANT,
   GENERAL_DATA_ITEM_STYLES,
   HORIZONTAL_GROUP_STYLES,
@@ -12,29 +13,43 @@ import {
   TIMESTAMP_ITEM_STYLES,
 } from '../constants';
 import { DynamicLayoutSceneData } from '../../types';
-import { CheckPageData } from './types';
+import { GetCheckPageDataParams } from './types';
 import { getInspectionResultTableData } from './getInspectionResultTableData';
 
-export const getCheckPageData = (
-  {
+export const getCheckPageData = ({
+  data: {
     title,
     description,
-    creationTimestamp,
-    lastEditionTimestamp,
     inspectionData,
+    lastEditionTimestamp,
     lastInspectionTimestamp,
-  }: CheckPageData,
-  onModalOpen: () => void,
-): DynamicLayoutSceneData => ({
+    creationTimestamp,
+    id,
+  },
+  onModalOpen,
+  onRunInspection,
+}: GetCheckPageDataParams): DynamicLayoutSceneData => ({
   title,
   controls: [
     {
       type: ControlType.button,
       data: {
         icon: {
+          type: ButtonControlIconType.run,
+          data: {
+            size: CONTROL_ICONS_SIZE,
+          },
+        },
+        onClick: () => onRunInspection({ id }),
+      },
+    },
+    {
+      type: ControlType.button,
+      data: {
+        icon: {
           type: ButtonControlIconType.settings,
           data: {
-            size: 16,
+            size: CONTROL_ICONS_SIZE,
           },
         },
         onClick: onModalOpen,

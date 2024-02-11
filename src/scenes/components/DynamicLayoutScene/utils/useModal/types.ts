@@ -1,4 +1,4 @@
-import { ResponseData } from '../data';
+import { ResponseData } from '../../data';
 
 export interface UseModalParams {
   refetch: () => void;

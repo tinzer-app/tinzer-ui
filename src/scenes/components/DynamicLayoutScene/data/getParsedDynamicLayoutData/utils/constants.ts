@@ -1,5 +1,7 @@
 import { ThemeVariant } from '@theme/variants';
 
+export const CONTROL_ICONS_SIZE = 20;
+
 export const HORIZONTAL_GROUP_STYLES = {
   justifyContent: 'space-between',
 };

@@ -4,6 +4,7 @@ import { getTagDataOfReportResult } from '@global/utils';
 import { DynamicLayoutSceneData } from '../../types';
 import {
   ADDITIONAL_DATA_SECTION_STYLES,
+  CONTROL_ICONS_SIZE,
   DATA_SECTION_TITLE_VARIANT,
   GENERAL_DATA_ITEM_STYLES,
   GENERAL_DATA_SECTION_STYLES,
@@ -12,11 +13,11 @@ import {
   PAGE_SECTION_TITLE_VARIANT,
   TIMESTAMP_ITEM_STYLES,
 } from '../constants';
-import { ProjectPageData } from './types';
+import { GetProjectPageDataParams } from './types';
 import { ButtonControlIconType, ControlType } from '@global/types';
 
-export const getProjectPageData = (
-  {
+export const getProjectPageData = ({
+  data: {
     title,
     id,
     description,
@@ -24,9 +25,9 @@ export const getProjectPageData = (
     lastInspectionStatus,
     creationTimestamp,
     lastEditionTimestamp,
-  }: ProjectPageData,
-  onModalOpen: () => void,
-): DynamicLayoutSceneData => ({
+  },
+  onModalOpen,
+}: GetProjectPageDataParams): DynamicLayoutSceneData => ({
   title,
   controls: [
     {
@@ -35,7 +36,7 @@ export const getProjectPageData = (
         icon: {
           type: ButtonControlIconType.settings,
           data: {
-            size: 16,
+            size: CONTROL_ICONS_SIZE,
           },
         },
         onClick: onModalOpen,

@@ -5,7 +5,7 @@ import { Component } from '@components/Component';
 import { PageLayout } from '@components/PageLayout';
 import { EditDataModal } from '@components/EditDataModal';
 
-import { useModal } from './useModal';
+import { useModal, usePageButtons } from './utils';
 import { getParsedDynamicLayoutData, useDynamicLayoutSceneData } from './data';
 
 export const DynamicLayoutScene: FC = () => {
@@ -14,7 +14,9 @@ export const DynamicLayoutScene: FC = () => {
   const { modal, snackbar } = useModal({ responseData, refetch });
   const { isOpen, onOpen } = modal;
 
-  const data = getParsedDynamicLayoutData({ responseData, onModalOpen: onOpen });
+  const { onRunInspection } = usePageButtons();
+
+  const data = getParsedDynamicLayoutData({ responseData, onRunInspection, onModalOpen: onOpen });
   const { title, controls, data: componentsData } = data || {};
 
   return (

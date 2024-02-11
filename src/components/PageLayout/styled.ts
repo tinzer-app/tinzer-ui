@@ -14,6 +14,7 @@ export const Header = styled('header')(
 
 export const ControlsWrapper = styled('div')(
   css({
+    display: 'flex',
     ml: 5,
   }),
 );
@@ -21,7 +22,7 @@ export const ControlsWrapper = styled('div')(
 export const Control = styled(ControlComponent)(
   css({
     '&:not(:first-child)': {
-      ml: 2,
+      ml: 3,
     },
   }),
 );

@@ -12,9 +12,7 @@ export const TextInput: FC<TextInputProps> = ({ data, id }) => {
   const { value, onChange, isValid, onBlur } = useTextInput({ data, id });
 
   return inputType === 'textArea' ? (
-    <TextArea id={id} onChange={onChange} cols={50} rows={5}>
-      {value}
-    </TextArea>
+    <TextArea id={id} value={value} onChange={onChange} cols={50} rows={5} />
   ) : (
     <InputComponent
       id={id}

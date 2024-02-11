@@ -1,7 +1,8 @@
 import { ControlData, ItemType } from '@global/types';
 import { ComponentData } from '@components/Component';
 
-import { CheckPageData, ConditionPageData, ProjectPageData } from './utils';
+import { OnRunInspection } from '../../utils';
+import { CheckPageData, ConditionPageData, GetDataParams, ProjectPageData } from './utils';
 
 export type ResponseData =
   | GenericData<ItemType.project, ProjectPageData>
@@ -14,7 +15,7 @@ export interface DynamicLayoutSceneData {
   controls?: ControlData[];
 }
 
-export interface GetParsedDynamicLayoutDataParams {
-  onModalOpen: () => void;
+export interface GetParsedDynamicLayoutDataParams extends GetDataParams {
+  onRunInspection: OnRunInspection;
   responseData?: ResponseData | null;
 }

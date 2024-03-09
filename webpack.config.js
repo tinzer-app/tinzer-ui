@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: path.resolve(__dirname, 'src', 'index.tsx'),
@@ -17,8 +18,15 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Custom template',
-      // Load a custom template (lodash by default)
       template: './src/index.html',
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, 'src/assets/favicon'),
+          to: path.resolve(__dirname, 'dist'),
+        },
+      ],
     }),
   ],
   target: 'web',

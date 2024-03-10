@@ -1,0 +1,1 @@
+export { getEllipsisText } from './getEllipsisText';

@@ -173,7 +173,7 @@ const MOCK_CHECK_PAGE_DATA: ResponseData = {
 };
 
 export const getMockData = (entity: string) => {
-  switch (entity) {
+  switch (entity.split('/')[0]) {
     case 'projects': {
       return MOCK_PROJECT_PAGE_DATA;
     }

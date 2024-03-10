@@ -54,4 +54,9 @@ export const variants = {
     fontSize: '1.75rem',
     fontWeight: 600,
   },
+  h4Semibold: {
+    fontFamily,
+    fontSize: '1.5rem',
+    fontWeight: 600,
+  },
 };

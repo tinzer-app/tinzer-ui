@@ -1,7 +1,7 @@
 import ky from 'ky';
 import { QueryClient } from '@tanstack/react-query';
 
-const BASE_API_URL = '';
+const BASE_API_URL = 'http://localhost:3000/api/v1/';
 
 export const queryClient = new QueryClient({
   defaultOptions: {
@@ -19,4 +19,4 @@ export const API = ky.create({
   },
 });
 
-export const IS_MOCK_ACTIVE = true;
+export const IS_MOCK_ACTIVE = false;

@@ -10,7 +10,6 @@ import {
   GENERAL_DATA_SECTION_STYLES,
   HORIZONTAL_GROUP_STYLES,
   MAIN_DATA_SECTION_STYLES,
-  PAGE_SECTION_TITLE_VARIANT,
   TIMESTAMP_ITEM_STYLES,
 } from '../constants';
 import { GetProjectPageDataParams } from './types';
@@ -157,35 +156,36 @@ export const getProjectPageData = ({
         },
       ],
     },
-    {
-      type: ComponentType.horizontalComponentsGroup,
-      styles: {
-        ...HORIZONTAL_GROUP_STYLES,
-        alignItems: 'baseline',
-        mt: 10,
-      },
-      data: [
-        {
-          type: ComponentType.text,
-          data: {
-            value: 'последние проверки',
-            variant: PAGE_SECTION_TITLE_VARIANT,
-          },
-        },
-        {
-          type: ComponentType.link,
-          data: {
-            to: `/reports`,
-            title: 'все проверки',
-          },
-        },
-      ],
-    },
-    {
-      type: ComponentType.pageSection,
-      data: {
-        endpoint: `conditions/${id}`,
-      },
-    },
+    // TODO: раскомментить, когда будет готов соответствующий функционал
+    // {
+    //   type: ComponentType.horizontalComponentsGroup,
+    //   styles: {
+    //     ...HORIZONTAL_GROUP_STYLES,
+    //     alignItems: 'baseline',
+    //     mt: 10,
+    //   },
+    //   data: [
+    //     {
+    //       type: ComponentType.text,
+    //       data: {
+    //         value: 'последние проверки',
+    //         variant: PAGE_SECTION_TITLE_VARIANT,
+    //       },
+    //     },
+    //     {
+    //       type: ComponentType.link,
+    //       data: {
+    //         to: `/reports`,
+    //         title: 'все проверки',
+    //       },
+    //     },
+    //   ],
+    // },
+    // {
+    //   type: ComponentType.pageSection,
+    //   data: {
+    //     endpoint: `conditions/${id}`,
+    //   },
+    // },
   ],
 });

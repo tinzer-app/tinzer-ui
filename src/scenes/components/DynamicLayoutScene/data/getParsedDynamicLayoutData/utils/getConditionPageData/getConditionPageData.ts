@@ -10,7 +10,6 @@ import {
   GENERAL_DATA_SECTION_STYLES,
   HORIZONTAL_GROUP_STYLES,
   MAIN_DATA_SECTION_STYLES,
-  PAGE_SECTION_TITLE_VARIANT,
   TIMESTAMP_ITEM_STYLES,
 } from '../constants';
 import { GetConditionPageDataParams } from './types';
@@ -79,12 +78,12 @@ export const getConditionPageData = ({
               },
             },
             {
-              type: ComponentType.horizontalComponentsGroup,
+              type: ComponentType.verticalComponentsGroup,
               styles: {
                 ...GENERAL_DATA_ITEM_STYLES,
-                columnGap: 20,
-                rowGap: 10,
-                flexWrap: 'wrap',
+                display: 'flex',
+                flexDirection: 'column',
+                rowGap: 2,
               },
               data: conditions.map(conditionData => ({
                 type: ComponentType.condition,
@@ -130,35 +129,36 @@ export const getConditionPageData = ({
         },
       ],
     },
-    {
-      type: ComponentType.horizontalComponentsGroup,
-      styles: {
-        ...HORIZONTAL_GROUP_STYLES,
-        alignItems: 'baseline',
-        mt: 10,
-      },
-      data: [
-        {
-          type: ComponentType.text,
-          data: {
-            value: 'последние проверки',
-            variant: PAGE_SECTION_TITLE_VARIANT,
-          },
-        },
-        {
-          type: ComponentType.link,
-          data: {
-            to: `/reports`,
-            title: 'все проверки',
-          },
-        },
-      ],
-    },
-    {
-      type: ComponentType.pageSection,
-      data: {
-        endpoint: `conditions/${id}`,
-      },
-    },
+    // TODO: раскомментить, когда будет готов соответствующий функционал
+    // {
+    //   type: ComponentType.horizontalComponentsGroup,
+    //   styles: {
+    //     ...HORIZONTAL_GROUP_STYLES,
+    //     alignItems: 'baseline',
+    //     mt: 10,
+    //   },
+    //   data: [
+    //     {
+    //       type: ComponentType.text,
+    //       data: {
+    //         value: 'последние проверки',
+    //         variant: PAGE_SECTION_TITLE_VARIANT,
+    //       },
+    //     },
+    //     {
+    //       type: ComponentType.link,
+    //       data: {
+    //         to: `/reports`,
+    //         title: 'все проверки',
+    //       },
+    //     },
+    //   ],
+    // },
+    // {
+    //   type: ComponentType.pageSection,
+    //   data: {
+    //     endpoint: `conditions/${id}`,
+    //   },
+    // },
   ],
 });

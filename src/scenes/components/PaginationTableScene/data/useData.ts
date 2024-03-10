@@ -13,7 +13,7 @@ const getPaginationTableSceneData = (endpoint: string, requestParams: RequestPar
     return getMockData(endpoint);
   }
 
-  return API.get(endpoint, {
+  return API.post(endpoint, {
     body: JSON.stringify(requestParams),
   }).json<ResponseData>();
 };

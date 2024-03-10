@@ -1,4 +1,5 @@
 import { ItemType } from '@global/types';
+import { getEllipsisText } from '@global/utils';
 
 import { GetSnackbarTitleParams } from './types';
 
@@ -6,20 +7,20 @@ export const getSnackbarTitle = ({ params: { data }, success }: GetSnackbarTitle
   switch (data.type) {
     case ItemType.project: {
       return success
-        ? `проект "${data.data.title}" создан`
-        : `не удалось создать проект "${data.data.title}"`;
+        ? `проект "${getEllipsisText(data.data.title)}" создан`
+        : `не удалось создать проект "${getEllipsisText(data.data.title)}"`;
     }
 
     case ItemType.condition: {
       return success
-        ? `правило "${data.data.title}" создано`
-        : `не удалось создать правило "${data.data.title}"`;
+        ? `правило "${getEllipsisText(data.data.title)}" создано`
+        : `не удалось создать правило "${getEllipsisText(data.data.title)}"`;
     }
 
     case ItemType.inspection: {
       return success
-        ? `проверка "${data.data.title}" создана`
-        : `не удалось создать проверку "${data.data.title}"`;
+        ? `проверка "${getEllipsisText(data.data.title)}" создана`
+        : `не удалось создать проверку "${getEllipsisText(data.data.title)}"`;
     }
 
     default: {

@@ -33,8 +33,5 @@ export const useDynamicLayoutSceneData = () => {
     queryFn,
   });
 
-  console.log('endpoint', endpoint);
-  console.log('data', responseData);
-
   return { isFetching, error, responseData, refetch };
 };

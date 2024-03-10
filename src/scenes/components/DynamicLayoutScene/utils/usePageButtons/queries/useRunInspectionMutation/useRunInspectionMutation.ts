@@ -4,9 +4,9 @@ import { API } from '@api/constants';
 
 import { RunInspectionQueryParams } from './types';
 
-const mutationFn = (params: RunInspectionQueryParams) =>
-  API.post('', {
-    body: JSON.stringify(params),
+const mutationFn = ({ id }: RunInspectionQueryParams) =>
+  API.post(`inspections/${id}/runInspection`, {
+    body: JSON.stringify({}),
   }).json<void>();
 
 export const useRunInspectionMutation = () =>

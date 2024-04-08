@@ -1,7 +1,7 @@
 import ky from 'ky';
 import { QueryClient } from '@tanstack/react-query';
 
-const BASE_API_URL = 'http://localhost:3000/api/v1/';
+const BASE_API_URL = 'http://90.156.209.16/api/v1';
 
 export const queryClient = new QueryClient({
   defaultOptions: {

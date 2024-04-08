@@ -6,6 +6,9 @@ import { CheckIcon as CheckIconComponent } from '@icons/CheckIcon';
 
 export const Title = styled(Text)({
   textOverflow: 'ellipsis',
+  textAlign: 'start',
+  overflow: 'hidden',
+  whiteSpace: 'nowrap',
 });
 
 export const CheckIcon = styled(CheckIconComponent)({

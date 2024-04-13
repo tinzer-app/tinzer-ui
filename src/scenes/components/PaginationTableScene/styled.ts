@@ -2,7 +2,16 @@ import css from '@styled-system/css';
 import styled from 'styled-components';
 
 import { PlusIcon } from '@icons/PlusIcon';
+import { Table as TableComponent } from '@components/Table';
 import { Pagination as PaginationComponent } from '@components/Pagination';
+
+export const Table = styled(TableComponent)(
+  css({
+    '& td': {
+      maxWidth: 300,
+    },
+  }),
+);
 
 export const Pagination = styled(PaginationComponent)(
   css({

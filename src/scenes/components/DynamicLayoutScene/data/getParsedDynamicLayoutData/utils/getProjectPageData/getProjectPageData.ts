@@ -13,7 +13,7 @@ import {
   TIMESTAMP_ITEM_STYLES,
 } from '../constants';
 import { GetProjectPageDataParams } from './types';
-import { ButtonControlIconType, ControlType } from '@global/types';
+import { ButtonControlIconType, ControlType, ItemType } from '@global/types';
 
 export const getProjectPageData = ({
   data: {
@@ -51,7 +51,7 @@ export const getProjectPageData = ({
             size: CONTROL_ICONS_SIZE,
           },
         },
-        onClick: () => onDeleteItem({ id }),
+        onClick: () => onDeleteItem({ id, itemType: ItemType.project }),
       },
     },
   ],

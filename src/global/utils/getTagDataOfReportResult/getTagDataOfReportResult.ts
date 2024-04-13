@@ -17,10 +17,17 @@ export const getTagDataOfReportResult = (reportResult: InspectionStatus): TagDat
       };
     }
 
-    default: {
+    case InspectionStatus.inProgress: {
       return {
         title: 'в процессе',
         color: 'tagBlue',
+      };
+    }
+
+    default: {
+      return {
+        title: 'не запускалась',
+        color: 'tagGray',
       };
     }
   }

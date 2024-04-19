@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 
-import { Text, TextData } from '@components/Text';
+import { TextData } from '@components/Text';
 
-import { Subtitle } from './styled';
+import { Title, Subtitle } from './styled';
 import { TextCellProps } from './types';
 
 export const TextCell: FC<TextCellProps> = ({ data }) => {
@@ -16,7 +16,7 @@ export const TextCell: FC<TextCellProps> = ({ data }) => {
 
   return (
     <>
-      <Text {...titleData} key="-1" />
+      <Title {...titleData} key="-1" />
       {subtitles?.map((subtitle, idx) => {
         const subtitleData: TextData = {
           variant: 'body2Regular',

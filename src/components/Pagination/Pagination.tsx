@@ -22,6 +22,10 @@ export const Pagination: FC<PaginationProps> = ({
     setCurrentPage(initPage);
   }, [initPage, setCurrentPage]);
 
+  if (pagesCount < 2) {
+    return null;
+  }
+
   return (
     <footer className={className}>
       <PaginationComponent

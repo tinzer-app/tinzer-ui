@@ -1,5 +1,5 @@
 import { ComponentType } from '@components/Component';
-import { ButtonControlIconType, ControlType } from '@global/types';
+import { ButtonControlIconType, ControlType, ItemType } from '@global/types';
 
 import { DynamicLayoutSceneData } from '../../types';
 import {
@@ -42,7 +42,7 @@ export const getConditionPageData = ({
             size: CONTROL_ICONS_SIZE,
           },
         },
-        onClick: () => onDeleteItem({ id }),
+        onClick: () => onDeleteItem({ id, itemType: ItemType.condition }),
       },
     },
   ],

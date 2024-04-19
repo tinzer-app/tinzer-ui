@@ -11,6 +11,7 @@ export const colors = {
   tagGreen: '#EAFAD5',
   tagBlue: '#D0F0FF',
   tagRed: '#FFEAF1',
+  tagGray: '#dedede',
   tagSkyBlueActive: '#2abbff',
   tagMagentaActive: '#fb44fb',
   tagCyanActive: '#37d6d6',

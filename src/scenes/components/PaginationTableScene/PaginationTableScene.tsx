@@ -1,13 +1,12 @@
 import React, { FC } from 'react';
 
-import { Table } from '@components/Table';
 import { Snackbar } from '@components/Snackbar';
 import { PageLayout } from '@components/PageLayout';
 import { EditDataModal } from '@components/EditDataModal';
 
 import { usePaginationTableSceneData } from './data';
 import { usePaginationModal, usePaginationTable } from './utils';
-import { CreateItemButton, CreateItemIcon, Pagination } from './styled';
+import { CreateItemButton, CreateItemIcon, Pagination, Table } from './styled';
 
 export const PaginationTableScene: FC = () => {
   const { error, isFetching, data, setRequestParams, refetchPaginationTableData } =

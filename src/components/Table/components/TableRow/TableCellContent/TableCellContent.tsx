@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 
 import { Tag } from '@components/Tag';
-import { Link } from '@components/Link';
 import { TimestampComponent } from '@components/TimestampComponent';
 
+import { Link } from './styled';
 import { TextCell } from './TextCell';
 import { CellTypes, TableCellContentProps } from './types';
 

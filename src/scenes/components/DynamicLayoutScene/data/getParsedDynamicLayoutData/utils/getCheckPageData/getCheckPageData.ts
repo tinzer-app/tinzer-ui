@@ -1,7 +1,7 @@
 import { ComponentType } from '@components/Component';
 import { TagComponent } from '@components/Tag/styled';
 import { getTagDataOfReportResult } from '@global/utils';
-import { ButtonControlIconType, ControlType } from '@global/types';
+import { ButtonControlIconType, ControlType, ItemType } from '@global/types';
 
 import {
   ADDITIONAL_DATA_SECTION_STYLES,
@@ -65,7 +65,7 @@ export const getCheckPageData = ({
             size: CONTROL_ICONS_SIZE,
           },
         },
-        onClick: () => onDeleteItem({ id }),
+        onClick: () => onDeleteItem({ id, itemType: ItemType.inspection }),
       },
     },
   ],

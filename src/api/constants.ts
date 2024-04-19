@@ -1,7 +1,7 @@
 import ky from 'ky';
 import { QueryClient } from '@tanstack/react-query';
 
-const BASE_API_URL = 'http://api.tinzer.pro/api/v1';
+const BASE_API_URL = 'https://api.tinzer.pro/api/v1';
 
 export const queryClient = new QueryClient({
   defaultOptions: {

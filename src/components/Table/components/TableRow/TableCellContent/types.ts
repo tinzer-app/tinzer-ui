@@ -9,9 +9,11 @@ export enum CellTypes {
   link = 'link',
   tag = 'tag',
   timestamp = 'timestamp',
+  verticalGroup = 'verticalGroup',
 }
 
 export type TableCellData =
+  | GenericData<CellTypes.verticalGroup, TableCellData[]>
   | GenericData<CellTypes.tag, TagData>
   | GenericData<CellTypes.text, TextCellData>
   | GenericData<CellTypes.link, WidgetLinkData>

@@ -1,4 +1,4 @@
-import { InspectionStatus } from '@global/types';
+import { ConditionType, InspectionStatus } from '@global/types';
 
 import { PaginationTableSceneType, ResponseData } from './getParsedPaginationSceneData';
 
@@ -46,6 +46,7 @@ const MOCK_CONDITIONS_PAGE_DATA: ResponseData = {
     id: idx.toString(),
     creationTimestamp: '2022-08-10T10:30:04-05:00',
     lastEditionTimestamp: '2023-12-24T04:56:37-05:00',
+    conditionsTypes: [ConditionType.fileExistence, ConditionType.stringsInFilesMatching],
   })),
   paginationData: {
     pagesCount: 2,
@@ -65,7 +66,6 @@ const MOCK_REPORTS_PAGE_DATA: ResponseData = {
     description: 'Краткое описание...',
     lastInspectionTimestamp: '2022-08-10T10:30:04-05:00',
     lastInspectionStatus: getReportResult(idx),
-    conditionsCount: idx,
   })),
 };
 

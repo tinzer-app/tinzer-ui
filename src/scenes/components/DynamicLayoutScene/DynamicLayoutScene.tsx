@@ -14,7 +14,7 @@ export const DynamicLayoutScene: FC = () => {
   const { modal, snackbar } = useModal({ responseData, refetch });
   const { isOpen, onOpen } = modal;
 
-  const { onRunInspection, onDeleteItem } = usePageButtons();
+  const { onRunInspection, onDeleteItem } = usePageButtons({ onSuccessInspection: refetch });
 
   const data = getParsedDynamicLayoutData({
     responseData,

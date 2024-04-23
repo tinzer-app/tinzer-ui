@@ -62,7 +62,7 @@ export const getRequestData = ({
         data: {
           ...generalData,
           conditions: getSearchItems(CONDITIONS_ID),
-          prjects: getSearchItems(PROJECTS_ID),
+          projects: getSearchItems(PROJECTS_ID),
         },
       };
     }

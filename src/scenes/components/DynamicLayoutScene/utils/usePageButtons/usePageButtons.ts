@@ -6,13 +6,14 @@ import {
   useDeleteItemMutation,
   useRunInspectionMutation,
 } from './queries';
+import { UsePageButtonsParams } from './types';
 
-export const usePageButtons = () => {
+export const usePageButtons = ({ onSuccessInspection }: UsePageButtonsParams) => {
   const navigate = useNavigate();
 
-  const onSuccessDelete = () => navigate('..');
+  const onSuccessDelete = () => navigate(-1);
 
-  const runInspectionMutation = useRunInspectionMutation();
+  const runInspectionMutation = useRunInspectionMutation({ onSuccessFetch: onSuccessInspection });
   const deleteItemMutation = useDeleteItemMutation({ onSuccessFetch: onSuccessDelete });
 
   const onRunInspection = (params: RunInspectionQueryParams) =>

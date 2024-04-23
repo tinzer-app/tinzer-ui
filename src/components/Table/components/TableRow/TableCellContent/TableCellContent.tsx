@@ -13,6 +13,16 @@ export const TableCellContent: FC<TableCellContentProps> = ({ data }) => {
       return <TextCell data={data.data} />;
     }
 
+    case CellTypes.verticalGroup: {
+      return (
+        <div>
+          {data.data.map((cellData, idx) => (
+            <TableCellContent data={cellData} key={idx} />
+          ))}
+        </div>
+      );
+    }
+
     case CellTypes.timestamp: {
       return <TimestampComponent data={data.data} />;
     }

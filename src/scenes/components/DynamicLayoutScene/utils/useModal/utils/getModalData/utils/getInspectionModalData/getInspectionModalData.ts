@@ -45,7 +45,7 @@ export const getInspectionModalData = ({
         data: {
           initItems: projects,
           queryConfig: {
-            endpoint: 'modal/projects',
+            endpoint: 'inspections/modal/projects',
           },
         },
       },
@@ -58,7 +58,7 @@ export const getInspectionModalData = ({
         data: {
           initItems: conditions,
           queryConfig: {
-            endpoint: 'modal/conditions',
+            endpoint: 'inspections/modal/conditions',
           },
         },
       },

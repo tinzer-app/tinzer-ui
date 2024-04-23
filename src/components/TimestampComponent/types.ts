@@ -1,5 +1,5 @@
 export interface TimestampComponentData {
-  timestamp: Timestamp;
+  timestamp?: Timestamp | null;
 }
 
 export interface TimestampComponentProps {

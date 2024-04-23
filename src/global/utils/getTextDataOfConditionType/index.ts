@@ -1,0 +1,1 @@
+export { getTextDataOfConditionType } from './getTextDataOfConditionType';

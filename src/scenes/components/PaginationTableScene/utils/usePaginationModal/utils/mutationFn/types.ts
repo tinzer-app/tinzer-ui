@@ -4,9 +4,13 @@ interface WithId {
   id: string;
 }
 
+interface InspectionEntity extends WithId {
+  title: String;
+}
+
 interface InspectionData extends GeneralItemData {
-  conditions: WithId[];
-  prjects: WithId[];
+  conditions: InspectionEntity[];
+  projects: InspectionEntity[];
 }
 
 interface ProjectRepositoryData extends Omit<RepositoryData, 'link'> {

@@ -151,7 +151,7 @@ export const INSPECTIONS_MODAL_DATA: EditDataModalData = {
         data: {
           initItems: [],
           queryConfig: {
-            endpoint: 'modal/projects',
+            endpoint: 'inspections/modal/projects',
           },
         },
       },
@@ -164,7 +164,7 @@ export const INSPECTIONS_MODAL_DATA: EditDataModalData = {
         data: {
           initItems: [],
           queryConfig: {
-            endpoint: 'modal/conditions',
+            endpoint: 'inspections/modal/conditions',
           },
         },
       },

@@ -1,7 +1,7 @@
-import { ComponentType } from '@components/Component';
+import { ComponentData, ComponentType } from '@components/Component';
 import { TagComponent } from '@components/Tag/styled';
 import { getTagDataOfReportResult } from '@global/utils';
-import { ButtonControlIconType, ControlType, ItemType } from '@global/types';
+import { ButtonControlIconType, CheckResult, ControlType, ItemType } from '@global/types';
 
 import {
   ADDITIONAL_DATA_SECTION_STYLES,
@@ -162,16 +162,20 @@ export const getCheckPageData = ({
         variant: PAGE_SECTION_TITLE_VARIANT,
       },
     },
-    {
-      type: ComponentType.table,
-      styles: {
-        mt: 2,
+    ...(inspectionData.details
+      ? [
+          {
+            type: ComponentType.table,
+            styles: {
+              mt: 2,
 
-        [TagComponent]: {
-          m: 'auto',
-        },
-      },
-      data: getInspectionResultTableData(inspectionData),
-    },
+              [TagComponent]: {
+                m: 'auto',
+              },
+            },
+            data: getInspectionResultTableData(inspectionData as CheckResult),
+          } as ComponentData,
+        ]
+      : []),
   ],
 });

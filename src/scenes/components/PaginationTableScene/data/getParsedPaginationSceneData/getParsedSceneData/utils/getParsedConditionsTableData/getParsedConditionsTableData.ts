@@ -1,6 +1,7 @@
 import { CellTypes, TableData } from '@components/Table';
 
 import { ConditionData } from './types';
+import { getTextDataOfConditionType } from '@global/utils';
 
 export const getParsedConditionsTableData = (conditionsData: ConditionData[]): TableData => ({
   headers: [
@@ -21,7 +22,7 @@ export const getParsedConditionsTableData = (conditionsData: ConditionData[]): T
     },
   ],
   rows: conditionsData.map(
-    ({ title, description, creationTimestamp, lastEditionTimestamp, id }) => ({
+    ({ title, description, creationTimestamp, lastEditionTimestamp, id, conditionsTypes }) => ({
       id,
       link: {
         to: id,
@@ -56,12 +57,11 @@ export const getParsedConditionsTableData = (conditionsData: ConditionData[]): T
           },
         },
         {
-          type: CellTypes.text,
-          data: {
-            title: {
-              value: 'должны быть типы',
-            },
-          },
+          type: CellTypes.verticalGroup,
+          data: conditionsTypes.map(type => ({
+            type: CellTypes.text,
+            data: getTextDataOfConditionType(type),
+          })),
         },
       ],
     }),
